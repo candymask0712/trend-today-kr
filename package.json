@@ -1,0 +1,14 @@
+{
+  "name": "trend-web-generator",
+  "version": "1.0.0",
+  "description": "한국 트렌드 기반 웹 프로젝트 자동 생성기",
+  "type": "module",
+  "scripts": {
+    "generate": "node src/index.js",
+    "deploy": "node src/deploy.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "rss-parser": "^3.13.0"
+  }
+}
