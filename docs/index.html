@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>윤석열 대통령 탄핵 1주년 - 한국 정치 현황</title>
+    <title>한국 정치 공천 갈등 실시간 현황</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,11 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
         }
         
         .container {
@@ -25,123 +25,116 @@
             padding: 20px;
         }
         
-        header {
+        .header {
             text-align: center;
-            padding: 40px 0;
             color: white;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
         }
         
-        .main-title {
+        .header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        .subtitle {
-            font-size: 1.2rem;
+        .header p {
+            font-size: 1.1rem;
             opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        .trending-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
         }
         
         .card {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
+            border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
             margin-bottom: 20px;
-            color: #2c3e50;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out;
         }
         
-        .icon {
-            font-size: 1.8rem;
+        .card-header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 20px 0;
         }
         
         .timeline-item {
-            border-left: 3px solid #667eea;
-            padding-left: 20px;
+            display: flex;
             margin-bottom: 20px;
-            position: relative;
+            align-items: flex-start;
         }
         
-        .timeline-item::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: #667eea;
+        .timeline-marker {
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             border-radius: 50%;
-            position: absolute;
-            left: -6.5px;
-            top: 5px;
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 0.9rem;
+            margin-right: 15px;
+            margin-top: 5px;
+            flex-shrink: 0;
         }
         
         .timeline-content {
-            margin-top: 5px;
+            flex: 1;
+        }
+        
+        .timeline-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-desc {
             color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
         }
         
         .keyword-tag {
-            display: inline-block;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #4834d4, #686de0);
             color: white;
-            padding: 8px 15px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
-            margin: 5px;
-            font-weight: 500;
+            animation: pulse 2s infinite;
         }
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
         }
         
         .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
             color: white;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
         }
         
         .stat-number {
@@ -155,233 +148,257 @@
             opacity: 0.9;
         }
         
-        .news-item {
-            padding: 15px;
-            border-left: 4px solid #667eea;
-            margin-bottom: 15px;
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 0 10px 10px 0;
+        .impact-meter {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
         }
         
-        .news-source {
+        .meter-label {
             font-weight: bold;
-            color: #667eea;
-            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
         
-        .news-content {
-            margin-top: 5px;
-            color: #444;
+        .meter-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
         }
         
-        footer {
+        .meter-fill {
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            height: 100%;
+            width: 85%;
+            border-radius: 10px;
+            animation: fillBar 2s ease-out;
+        }
+        
+        .footer {
             text-align: center;
-            padding: 40px 20px;
-            color: rgba(255,255,255,0.8);
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
             font-size: 0.9rem;
         }
         
-        .footer-divider {
-            width: 60px;
-            height: 2px;
-            background: rgba(255,255,255,0.3);
-            margin: 20px auto;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes fillBar {
+            from { width: 0%; }
+            to { width: 85%; }
         }
         
         @media (max-width: 768px) {
-            .main-title {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
                 font-size: 2rem;
             }
             
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .card {
+            .card-content {
                 padding: 20px;
             }
             
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="trending-badge pulse">🔥 HOT ISSUE</div>
-            <h1 class="main-title">윤석열 대통령 탄핵 1주년</h1>
-            <p class="subtitle">서울 곳곳 집회로 교통 혼잡 예상, 정치권 지속적 갈등</p>
-        </header>
+        <div class="header">
+            <h1>🗳️ 정치 공천 갈등 실시간 현황</h1>
+            <p>2024년 총선을 앞둔 뜨거운 정치 이슈 분석</p>
+        </div>
         
-        <div class="content-grid">
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="icon">📊</span>
-                    현재 상황
-                </h2>
+        <div class="card">
+            <div class="card-header">
+                📊 핵심 이슈 분석
+            </div>
+            <div class="card-content">
+                <h3>공천 갈등과 가처분 신청 급증</h3>
+                <p>2024년 총선을 D-60 앞두고 각 정당의 공천 과정에서 갈등이 심화되고 있습니다. 특히 '컷오프 불복' 가처분 신청이 벌써 8건에 달하며, 법원의 판단을 기다리는 상황이 연출되고 있습니다.</p>
+                
+                <div class="impact-meter">
+                    <div class="meter-label">🔥 이슈 화제성 지수</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill"></div>
+                    </div>
+                    <div style="text-align: center; margin-top: 10px; color: #666;">85% - 매우 높음</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                ⏰ 주요 타임라인
+            </div>
+            <div class="card-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024.01.24</div>
+                            <div class="timeline-title">주호영 가처분 기각</div>
+                            <div class="timeline-desc">주호영 의원의 가처분 신청이 기각되며 민주당의 김부겸 단수공천이 확정</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024.01.23</div>
+                            <div class="timeline-title">홍준표 "진영 논리 끝내야"</div>
+                            <div class="timeline-desc">'김부겸 지지' 후폭풍 속에서 홍준표가 진영 논리 종식을 주장</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024.01.22</div>
+                            <div class="timeline-title">대구 4파전 양상</div>
+                            <div class="timeline-desc">민주당의 공천 속도가 빨라지면서 대구에서 4파전 양상이 나타날 가능성 제기</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024.01.21</div>
+                            <div class="timeline-title">가처분 신청 급증</div>
+                            <div class="timeline-desc">'컷오프 불복' 가처분 신청이 8건에 달하며 법정 다툼 본격화</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                📈 주요 통계
+            </div>
+            <div class="card-content">
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <span class="stat-number">1</span>
-                        <span class="stat-label">주년</span>
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">가처분 신청 건수</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">다수</span>
-                        <span class="stat-label">집회 예정</span>
+                        <span class="stat-number">59</span>
+                        <span class="stat-label">총선까지 남은 일수</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">서울</span>
-                        <span class="stat-label">집회 지역</span>
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">대구 예상 후보 수</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">정치권 관심도</span>
                     </div>
                 </div>
-                <p style="margin-top: 20px; color: #666;">
-                    윤석열 대통령 탄핵 1주년을 맞아 서울 곳곳에서 다양한 집회가 예정되어 있어 교통 혼잡이 예상되고 있습니다.
-                </p>
             </div>
-            
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="icon">⏰</span>
-                    주요 타임라인
-                </h2>
-                <div class="timeline-item">
-                    <div class="timeline-date">2023년 4월</div>
-                    <div class="timeline-content">윤석열 대통령 탄핵 관련 이슈 시작</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024년 4월</div>
-                    <div class="timeline-content">탄핵 1주년을 맞아 전국적 집회 계획</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">현재</div>
-                    <div class="timeline-content">서울 곳곳 집회로 교통 혼잡 예상</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">4월 7일 예정</div>
-                    <div class="timeline-content">여야 대표와 대통령 오찬 예정</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                🏷️ 관련 키워드
+            </div>
+            <div class="card-content">
+                <div class="keywords">
+                    <span class="keyword-tag">#총선2024</span>
+                    <span class="keyword-tag">#공천갈등</span>
+                    <span class="keyword-tag">#가처분신청</span>
+                    <span class="keyword-tag">#컷오프불복</span>
+                    <span class="keyword-tag">#민주당공천</span>
+                    <span class="keyword-tag">#김부겸</span>
+                    <span class="keyword-tag">#주호영</span>
+                    <span class="keyword-tag">#홍준표</span>
+                    <span class="keyword-tag">#대구선거구</span>
+                    <span class="keyword-tag">#정치개혁</span>
                 </div>
             </div>
-            
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="icon">🔍</span>
-                    관련 키워드
-                </h2>
-                <div>
-                    <span class="keyword-tag">#윤석열탄핵</span>
-                    <span class="keyword-tag">#1주년</span>
-                    <span class="keyword-tag">#서울집회</span>
-                    <span class="keyword-tag">#교통혼잡</span>
-                    <span class="keyword-tag">#정치갈등</span>
-                    <span class="keyword-tag">#여야대화</span>
-                    <span class="keyword-tag">#민주주의</span>
-                    <span class="keyword-tag">#시민참여</span>
-                </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                💡 전망 및 분석
             </div>
-            
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="icon">📺</span>
-                    관련 뉴스
-                </h2>
-                <div class="news-item">
-                    <div class="news-source">SBS 뉴스</div>
-                    <div class="news-content">윤 탄핵 1년, 서울 곳곳서 집회…교통 혼잡 예상</div>
-                </div>
-                <div class="news-item">
-                    <div class="news-source">정치 뉴스</div>
-                    <div class="news-content">이 대통령, 오는 7일 여야 대표와 오찬 예정</div>
-                </div>
-                <div class="news-item">
-                    <div class="news-source">국정 현황</div>
-                    <div class="news-content">창원시장 선거 대진표 4파전 윤곽 등 지방정치 이슈도 주목</div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="icon">🎯</span>
-                    핵심 포인트
-                </h2>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                        <strong>📍 집회 장소:</strong> 서울 곳곳 다수 지역
-                    </li>
-                    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                        <strong>🚗 교통 영향:</strong> 혼잡 예상으로 대중교통 이용 권장
-                    </li>
-                    <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
-                        <strong>🤝 정치적 대화:</strong> 4월 7일 여야 대표 오찬 예정
-                    </li>
-                    <li style="padding: 10px 0;">
-                        <strong>📊 사회적 관심:</strong> 탄핵 1주년으로 높은 관심도
-                    </li>
+            <div class="card-content">
+                <h3>앞으로의 전개 방향</h3>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li><strong>법원 판단 주목:</strong> 가처분 신청들에 대한 법원의 판단이 향후 공천 과정에 큰 영향을 미칠 예정</li>
+                    <li><strong>정당간 경쟁 심화:</strong> 총선이 다가오면서 각 정당의 전략적 공천이 더욱 치열해질 전망</li>
+                    <li><strong>유권자 관심 증대:</strong> 공천 갈등이 유권자들의 정치 참여 의식에 미치는 영향 주목</li>
+                    <li><strong>제도 개선 논의:</strong> 반복되는 공천 갈등을 해결하기 위한 제도적 개선 방안 모색 필요</li>
                 </ul>
             </div>
         </div>
         
-        <footer>
-            <div class="footer-divider"></div>
+        <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p>생성 시각: <span id="current-time"></span> (KST)</p>
-        </footer>
+            <p>생성 시각: <span id="currentTime"></span> (KST)</p>
+        </div>
     </div>
     
     <script>
-        // 현재 시각을 한국 시간으로 표시
-        function updateCurrentTime() {
+        // 현재 시간을 한국 시간으로 표시
+        function updateTime() {
             const now = new Date();
             const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const timeString = kstTime.toLocaleString('ko-KR', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'Asia/Seoul'
-            });
-            document.getElementById('current-time').textContent = timeString;
+            const timeString = kstTime.toISOString().replace('T', ' ').slice(0, 19);
+            document.getElementById('currentTime').textContent = timeString;
         }
         
         // 페이지 로드 시 시간 업데이트
-        updateCurrentTime();
+        updateTime();
         
-        // 카드 호버 효과 강화
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        // 카드 애니메이션 효과
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
         });
         
         // 키워드 태그 클릭 효과
-        document.querySelectorAll('.keyword-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
+        const keywords = document.querySelectorAll('.keyword-tag');
+        keywords.forEach(keyword => {
+            keyword.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1)';
                 setTimeout(() => {
                     this.style.transform = 'scale(1)';
-                }, 150);
+                }, 200);
             });
         });
         
@@ -400,21 +417,8 @@
             });
         }, observerOptions);
         
-        // 카드들에 초기 스타일과 옵저버 적용
-        document.querySelectorAll('.card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        cards.forEach(card => {
             observer.observe(card);
-        });
-        
-        // 페이지 로드 후 애니메이션 시작
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelectorAll('.card').forEach(card => {
-                    observer.observe(card);
-                });
-            }, 200);
         });
     </script>
 </body>
