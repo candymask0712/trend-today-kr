@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2024년 지방선거 열기 - 강원도지사·광주시장 선거</title>
+    <title>한덕수 총리 내란 중요임무종사 재판 - 2심 마무리</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,11 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
             line-height: 1.6;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: #333;
         }
         
         .container {
@@ -25,122 +25,91 @@
             padding: 20px;
         }
         
-        header {
+        .header {
             text-align: center;
             color: white;
             margin-bottom: 40px;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-out;
         }
         
-        h1 {
-            font-size: 2.5em;
+        .header h1 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        .subtitle {
-            font-size: 1.2em;
+        .header .subtitle {
+            font-size: 1.2rem;
             opacity: 0.9;
-            margin-bottom: 20px;
+            font-weight: 300;
         }
         
-        .card {
+        .breaking-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+        }
+        
+        .main-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card h2 {
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-        
-        .region-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .region-card {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        .key-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 25px;
             border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
+            margin: 20px 0;
         }
         
-        .region-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-        }
-        
-        .region-card.gwangju {
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
-        }
-        
-        .region-card h3 {
-            font-size: 1.5em;
+        .key-info h3 {
             margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
+            font-size: 1.3rem;
         }
         
-        .candidates {
-            list-style: none;
-            position: relative;
-            z-index: 1;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
         }
         
-        .candidates li {
+        .info-item {
             background: rgba(255, 255, 255, 0.2);
-            padding: 10px 15px;
-            margin: 8px 0;
-            border-radius: 25px;
+            padding: 15px;
+            border-radius: 10px;
             backdrop-filter: blur(5px);
-            font-weight: 500;
+        }
+        
+        .info-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
         }
         
         .timeline {
             position: relative;
             padding-left: 30px;
+            margin: 30px 0;
         }
         
         .timeline::before {
             content: '';
             position: absolute;
-            left: 10px;
+            left: 15px;
             top: 0;
             bottom: 0;
             width: 2px;
@@ -149,38 +118,39 @@
         
         .timeline-item {
             position: relative;
-            margin-bottom: 25px;
-            background: #f8f9fa;
+            background: white;
             padding: 20px;
+            margin-bottom: 20px;
             border-radius: 10px;
-            border-left: 4px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeInRight 1s ease-out;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -35px;
-            top: 20px;
+            left: -38px;
+            top: 25px;
             width: 12px;
             height: 12px;
-            background: #667eea;
             border-radius: 50%;
+            background: #667eea;
             border: 3px solid white;
             box-shadow: 0 0 0 3px #667eea;
         }
         
-        .date {
-            font-weight: bold;
+        .timeline-date {
             color: #667eea;
-            font-size: 0.9em;
-            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
         }
         
         .keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: center;
+            margin: 20px 0;
         }
         
         .keyword {
@@ -188,70 +158,136 @@
             color: white;
             padding: 8px 16px;
             border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
         }
         
         .keyword:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px);
         }
         
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        
-        .stat-item {
-            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
-            padding: 20px;
+        .analysis {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 25px;
             border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .analysis h3 {
             color: #2d3436;
+            margin-bottom: 15px;
         }
         
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-        
-        footer {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 40px;
+        .impact-meter {
+            background: white;
+            border-radius: 10px;
             padding: 20px;
-            font-size: 0.9em;
+            margin: 20px 0;
+            text-align: center;
         }
         
-        .pulse {
-            animation: pulse 2s infinite;
+        .meter {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            width: 85%;
+            border-radius: 10px;
+            animation: fillMeter 2s ease-out;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .generated-time {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fillMeter {
+            from {
+                width: 0%;
+            }
+            to {
+                width: 85%;
+            }
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .container {
+                padding: 15px;
             }
             
-            .card {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .main-card {
                 padding: 20px;
             }
             
-            .region-grid {
+            .info-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -263,171 +299,152 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1 class="pulse">🗳️ 지방선거 열기</h1>
-            <p class="subtitle">강원도지사 선거 & 광주시장 재보선</p>
-            <p>실시간 정치 트렌드 분석</p>
-        </header>
-
-        <div class="card">
-            <h2>🔥 현재 선거 현황</h2>
-            <div class="region-grid">
-                <div class="region-card">
-                    <h3>🏔️ 강원도지사 선거</h3>
-                    <ul class="candidates">
-                        <li>전 정무수석 후보</li>
-                        <li>현직 도지사</li>
-                        <li>치열한 경쟁 구도</li>
-                    </ul>
-                </div>
-                <div class="region-card gwangju">
-                    <h3>🌆 광주시장 재보선</h3>
-                    <ul class="candidates">
-                        <li>장동혁 (국민의힘)</li>
-                        <li>이진숙 (재보선 권유)</li>
-                        <li>2인 압축 완료</li>
-                    </ul>
+        <div class="header">
+            <div class="breaking-badge">🔥 HOT ISSUE</div>
+            <h1>한덕수 총리 내란재판</h1>
+            <div class="subtitle">2심 마무리, 1심 징역 23년의 운명은?</div>
+        </div>
+        
+        <div class="main-card">
+            <div class="key-info">
+                <h3>📊 핵심 정보</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>재판 단계</strong>
+                        2심 항소심 마무리
+                    </div>
+                    <div class="info-item">
+                        <strong>1심 판결</strong>
+                        징역 23년
+                    </div>
+                    <div class="info-item">
+                        <strong>혐의</strong>
+                        내란 중요임무종사
+                    </div>
+                    <div class="info-item">
+                        <strong>현재 지위</strong>
+                        국무총리 재직 중
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>📊 주요 통계</h2>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">주요 선거구</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">80%</div>
-                    <div class="stat-label">심사료 감액률</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">합동연설 참가자</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">국민 관심도</div>
-                </div>
+            
+            <div class="analysis">
+                <h3>🎯 이슈 분석</h3>
+                <p>현직 국무총리에 대한 내란 혐의 재판이 2심 마무리 단계에 접어들면서 정치권의 관심이 집중되고 있습니다. 1심에서 징역 23년이라는 중형이 선고된 만큼, 2심 결과가 향후 정국에 미칠 파장이 클 것으로 예상됩니다.</p>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>⏰ 선거 타임라인</h2>
+            
+            <div class="impact-meter">
+                <h3>사회적 관심도</h3>
+                <div class="meter">
+                    <div class="meter-fill"></div>
+                </div>
+                <p><strong>85%</strong> - 매우 높음</p>
+            </div>
+            
+            <h3>⏰ 주요 타임라인</h3>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="date">2024년 4월 5일</div>
-                    <div>민주당, 광주 '2인' 압축 완료 - 장동혁, 이진숙 후보 압축</div>
+                    <div class="timeline-date">2024년 초</div>
+                    <h4>내란 혐의 기소</h4>
+                    <p>한덕수 총리에 대한 내란 중요임무종사 혐의로 기소</p>
                 </div>
+                
                 <div class="timeline-item">
-                    <div class="date">2024년 4월 6일</div>
-                    <div>강원도 민심 조사 - "다음 강원도지사에 바라는 점" 여론조사 실시</div>
+                    <div class="timeline-date">1심 재판부</div>
+                    <h4>징역 23년 선고</h4>
+                    <p>1심 법원에서 내란 혐의에 대해 징역 23년의 중형 선고</p>
                 </div>
+                
                 <div class="timeline-item">
-                    <div class="date">현재</div>
-                    <div>국힘 '이정현 출마 시사' 전남광주 공천접수 진행 중</div>
+                    <div class="timeline-date">항소심 진행</div>
+                    <h4>2심 재판 진행</h4>
+                    <p>1심 판결에 불복하여 항소심 재판 진행</p>
                 </div>
+                
                 <div class="timeline-item">
-                    <div class="date">예정</div>
-                    <div>민주당 전남광주 경선 - 민형배·김영록 후보 결선 진행 예정</div>
+                    <div class="timeline-date">오늘</div>
+                    <h4>2심 마무리</h4>
+                    <p>2심 항소심 재판이 마무리 단계에 접어듦</p>
                 </div>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>🏷️ 관련 키워드</h2>
+            
+            <h3>🔍 관련 키워드</h3>
             <div class="keywords">
-                <span class="keyword">#지방선거</span>
-                <span class="keyword">#강원도지사</span>
-                <span class="keyword">#광주시장</span>
-                <span class="keyword">#재보선</span>
-                <span class="keyword">#공천접수</span>
-                <span class="keyword">#경선</span>
-                <span class="keyword">#민심</span>
-                <span class="keyword">#정치</span>
-                <span class="keyword">#선거</span>
-                <span class="keyword">#후보자</span>
+                <span class="keyword">#한덕수총리</span>
+                <span class="keyword">#내란혐의</span>
+                <span class="keyword">#징역23년</span>
+                <span class="keyword">#2심재판</span>
+                <span class="keyword">#중요임무종사</span>
+                <span class="keyword">#국무총리</span>
+                <span class="keyword">#항소심</span>
+                <span class="keyword">#정치적파장</span>
+            </div>
+            
+            <div class="analysis">
+                <h3>🔮 예상 시나리오</h3>
+                <ul style="margin-left: 20px; margin-top: 15px;">
+                    <li><strong>유지:</strong> 1심 판결이 그대로 유지될 경우 정치적 충격 극대화</li>
+                    <li><strong>감형:</strong> 형량이 줄어들더라도 유죄 판결시 총리직 유지 어려움</li>
+                    <li><strong>무죄:</strong> 2심에서 무죄 판결시 정치적 입지 회복 가능</li>
+                    <li><strong>상고:</strong> 어떤 판결이든 대법원 상고 가능성 높음</li>
+                </ul>
             </div>
         </div>
-
-        <div class="card">
-            <h2>📈 이슈 분석</h2>
-            <p style="margin-bottom: 15px;">
-                <strong>🎯 핵심 포인트:</strong> 현재 강원도지사 선거와 광주시장 재보선이 동시에 진행되면서 정치권의 뜨거운 관심을 받고 있습니다.
-            </p>
-            <p style="margin-bottom: 15px;">
-                <strong>🔍 주요 특징:</strong>
-            </p>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li>강원도: 전 정무수석 vs 현직 도지사의 구도</li>
-                <li>광주: 민주당 2인 압축, 국민의힘 심사료 80% 감액</li>
-                <li>전국적 정치 지형에 미칠 파급효과 주목</li>
-                <li>지역 민심 동향이 중앙정치에 미치는 영향</li>
-            </ul>
-            <p>
-                <strong>🌟 전망:</strong> 두 지역 모두 치열한 경쟁이 예상되며, 선거 결과가 향후 정치 지형에 중요한 변수가 될 것으로 분석됩니다.
-            </p>
-        </div>
-
-        <footer>
+        
+        <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p id="generated-time"></p>
-        </footer>
+            <div class="generated-time" id="generatedTime"></div>
+        </div>
     </div>
-
+    
     <script>
-        // 한국 시간으로 생성 시각 표시
-        const now = new Date();
-        const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-        const timeString = kstTime.toISOString().replace('T', ' ').slice(0, -8) + ' KST';
-        document.getElementById('generated-time').textContent = `생성 시각: ${timeString}`;
-
-        // 키워드 클릭 이벤트
-        document.querySelectorAll('.keyword').forEach(keyword => {
-            keyword.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 100);
+        // 생성 시각을 한국 시간으로 표시
+        function updateGeneratedTime() {
+            const now = new Date();
+            const koreaTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const timeString = koreaTime.toLocaleString('ko-KR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Seoul'
             });
+            document.getElementById('generatedTime').textContent = `생성시각: ${timeString} (KST)`;
+        }
+        
+        // 페이지 로드시 시간 업데이트
+        document.addEventListener('DOMContentLoaded', updateGeneratedTime);
+        
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // 애니메이션 적용할 요소들 관찰
+        document.querySelectorAll('.timeline-item, .main-card').forEach(el => {
+            observer.observe(el);
         });
-
-        // 카드 호버 이펙트
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
+        
+        // 키워드 호버 효과
+        document.querySelectorAll('.keyword').forEach(keyword => {
+            keyword.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
             });
             
-            card.addEventListener('mouseleave', function() {
+            keyword.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
-        });
-
-        // 통계 숫자 애니메이션
-        function animateNumbers() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const finalNumber = stat.textContent;
-                const isPercentage = finalNumber.includes('%');
-                const number = parseInt(finalNumber);
-                let current = 0;
-                const increment = number / 50;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= number) {
-                        current = number;
-                        clearInterval(timer);
-                    }
-                    stat.textContent = Math.floor(current) + (isPercentage ? '%' : '');
-                }, 30);
-            });
-        }
-
-        // 페이지 로드 시 애니메이션 실행
-        window.addEventListener('load', () => {
-            setTimeout(animateNumbers, 500);
         });
     </script>
 </body>
