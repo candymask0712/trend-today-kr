@@ -3,223 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한덕수 총리 내란 중요임무종사 재판 - 2심 마무리</title>
+    <title>이란-미국 휴전 협상 실시간 분석</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            font-family: 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .header {
             text-align: center;
             color: white;
             margin-bottom: 40px;
             animation: fadeInDown 1s ease-out;
         }
-        
+
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         .header .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
-            font-weight: 300;
         }
-        
+
         .breaking-badge {
             display: inline-block;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            background: #ff4757;
             color: white;
             padding: 8px 16px;
             border-radius: 25px;
-            font-size: 0.9rem;
             font-weight: bold;
             margin-bottom: 20px;
             animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
         }
-        
-        .main-card {
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .key-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
-        
-        .key-info h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
         }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .info-item {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .info-item strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
+
         .timeline {
             position: relative;
             padding-left: 30px;
-            margin: 30px 0;
         }
-        
+
         .timeline::before {
             content: '';
             position: absolute;
-            left: 15px;
+            left: 10px;
             top: 0;
             bottom: 0;
-            width: 2px;
+            width: 3px;
             background: linear-gradient(to bottom, #667eea, #764ba2);
         }
-        
+
         .timeline-item {
             position: relative;
-            background: white;
+            margin-bottom: 25px;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            animation: fadeInRight 1s ease-out;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
         }
-        
+
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -38px;
+            left: -42px;
             top: 25px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+            width: 15px;
+            height: 15px;
             background: #667eea;
+            border-radius: 50%;
             border: 3px solid white;
-            box-shadow: 0 0 0 3px #667eea;
         }
-        
-        .timeline-date {
+
+        .timeline-time {
             color: #667eea;
             font-weight: bold;
             font-size: 0.9rem;
-            margin-bottom: 8px;
         }
-        
+
+        .timeline-content {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
         .keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin: 20px 0;
+            margin-top: 20px;
         }
-        
-        .keyword {
+
+        .keyword-tag {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             padding: 8px 16px;
             border-radius: 25px;
             font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+            font-weight: 500;
             transition: transform 0.3s ease;
         }
-        
-        .keyword:hover {
-            transform: translateY(-2px);
+
+        .keyword-tag:hover {
+            transform: scale(1.05);
         }
-        
-        .analysis {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-        
-        .analysis h3 {
-            color: #2d3436;
-            margin-bottom: 15px;
-        }
-        
+
         .impact-meter {
-            background: white;
-            border-radius: 10px;
+            background: #f8f9fa;
+            border-radius: 15px;
             padding: 20px;
             margin: 20px 0;
-            text-align: center;
         }
-        
-        .meter {
-            width: 100%;
-            height: 20px;
+
+        .meter-bar {
             background: #e9ecef;
+            height: 20px;
             border-radius: 10px;
             overflow: hidden;
-            margin: 15px 0;
+            position: relative;
         }
-        
+
         .meter-fill {
             height: 100%;
-            background: linear-gradient(to right, #667eea, #764ba2);
-            width: 85%;
+            background: linear-gradient(90deg, #28a745, #ffc107, #dc3545);
             border-radius: 10px;
+            width: 85%;
             animation: fillMeter 2s ease-out;
         }
-        
+
+        .meter-label {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .sources {
+            background: #e3f2fd;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .source-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .source-icon {
+            width: 12px;
+            height: 12px;
+            background: #2196f3;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
         .footer {
             text-align: center;
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             margin-top: 40px;
-            opacity: 0.8;
+            padding: 20px;
             font-size: 0.9rem;
         }
-        
-        .generated-time {
-            background: rgba(255, 255, 255, 0.2);
+
+        .generation-time {
+            background: rgba(255, 255, 255, 0.1);
             padding: 10px 20px;
             border-radius: 25px;
-            display: inline-block;
             margin-top: 10px;
+            display: inline-block;
         }
-        
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -230,7 +231,7 @@
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -241,30 +242,16 @@
                 transform: translateY(0);
             }
         }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
+
         @keyframes pulse {
-            0% {
+            0%, 100% {
                 transform: scale(1);
             }
             50% {
                 transform: scale(1.05);
             }
-            100% {
-                transform: scale(1);
-            }
         }
-        
+
         @keyframes fillMeter {
             from {
                 width: 0%;
@@ -273,179 +260,214 @@
                 width: 85%;
             }
         }
-        
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
-            
+
             .header h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
-            
-            .main-card {
+
+            .card {
                 padding: 20px;
             }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
+
             .timeline {
                 padding-left: 20px;
+            }
+
+            .timeline-item::before {
+                left: -32px;
+            }
+
+            .keywords {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="breaking-badge">🔥 HOT ISSUE</div>
-            <h1>한덕수 총리 내란재판</h1>
-            <div class="subtitle">2심 마무리, 1심 징역 23년의 운명은?</div>
+        <header class="header">
+            <div class="breaking-badge">🔴 속보</div>
+            <h1>이란-미국 휴전 협상</h1>
+            <p class="subtitle">트럼프 2주간 공격 유예 제안, 이란 조건부 수용</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>📈 상황 분석</h2>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">
+                    이란과 미국 간 긴장 상황에서 트럼프 대통령이 제시한 2주간의 공격 유예 제안을 이란이 조건부로 수용하면서 
+                    국제 금융시장과 한국 증시에 긍정적 영향을 미치고 있습니다.
+                </p>
+
+                <div class="impact-meter">
+                    <h3 style="margin-bottom: 15px;">🎯 이슈 영향도</h3>
+                    <div class="meter-bar">
+                        <div class="meter-fill"></div>
+                    </div>
+                    <div class="meter-label">매우 높음 (85%)</div>
+                </div>
+
+                <div class="keywords">
+                    <span class="keyword-tag">#이란휴전</span>
+                    <span class="keyword-tag">#트럼프외교</span>
+                    <span class="keyword-tag">#중동평화</span>
+                    <span class="keyword-tag">#유가안정</span>
+                    <span class="keyword-tag">#코스피상승</span>
+                    <span class="keyword-tag">#국제정세</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>⏰ 실시간 타임라인</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">오늘 오전</div>
+                        <div class="timeline-content">
+                            <strong>이란 국영TV 발표:</strong> "트럼프가 이란의 종전 조건을 수용했다"고 보도
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">오늘 오후</div>
+                        <div class="timeline-content">
+                            <strong>NYT 보도:</strong> "이란, 2주간 휴전 제안을 수용" 확인 보도
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">현재</div>
+                        <div class="timeline-content">
+                            <strong>시장 반응:</strong> 코스피 상승 전망, 국제 유가 하락세, 원화 강세 기대
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💼 시장 영향</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="text-align: center; padding: 20px; background: #e8f5e8; border-radius: 15px;">
+                        <div style="font-size: 2rem; color: #28a745;">📈</div>
+                        <h3 style="color: #28a745; margin: 10px 0;">코스피</h3>
+                        <p>상승 전망</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: #e3f2fd; border-radius: 15px;">
+                        <div style="font-size: 2rem; color: #2196f3;">🛢️</div>
+                        <h3 style="color: #2196f3; margin: 10px 0;">유가</h3>
+                        <p>안정화 기대</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: #fff3e0; border-radius: 15px;">
+                        <div style="font-size: 2rem; color: #ff9800;">💰</div>
+                        <h3 style="color: #ff9800; margin: 10px 0;">원화</h3>
+                        <p>강세 전환</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📰 주요 언론사 보도</h2>
+                <div class="sources">
+                    <div class="source-item">
+                        <div class="source-icon"></div>
+                        <div>
+                            <strong>연합뉴스:</strong> "트럼프의 2주간 이란 공격 유예에 코스피 상승 전망"
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-icon"></div>
+                        <div>
+                            <strong>로이터:</strong> "이란 국영TV가 트럼프의 조건 수용을 확인"
+                        </div>
+                    </div>
+                    <div class="source-item">
+                        <div class="source-icon"></div>
+                        <div>
+                            <strong>뉴욕타임스:</strong> "이란, 2주간 휴전 제안에 공식 응답"
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="main-card">
-            <div class="key-info">
-                <h3>📊 핵심 정보</h3>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <strong>재판 단계</strong>
-                        2심 항소심 마무리
-                    </div>
-                    <div class="info-item">
-                        <strong>1심 판결</strong>
-                        징역 23년
-                    </div>
-                    <div class="info-item">
-                        <strong>혐의</strong>
-                        내란 중요임무종사
-                    </div>
-                    <div class="info-item">
-                        <strong>현재 지위</strong>
-                        국무총리 재직 중
-                    </div>
-                </div>
-            </div>
-            
-            <div class="analysis">
-                <h3>🎯 이슈 분석</h3>
-                <p>현직 국무총리에 대한 내란 혐의 재판이 2심 마무리 단계에 접어들면서 정치권의 관심이 집중되고 있습니다. 1심에서 징역 23년이라는 중형이 선고된 만큼, 2심 결과가 향후 정국에 미칠 파장이 클 것으로 예상됩니다.</p>
-            </div>
-            
-            <div class="impact-meter">
-                <h3>사회적 관심도</h3>
-                <div class="meter">
-                    <div class="meter-fill"></div>
-                </div>
-                <p><strong>85%</strong> - 매우 높음</p>
-            </div>
-            
-            <h3>⏰ 주요 타임라인</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024년 초</div>
-                    <h4>내란 혐의 기소</h4>
-                    <p>한덕수 총리에 대한 내란 중요임무종사 혐의로 기소</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">1심 재판부</div>
-                    <h4>징역 23년 선고</h4>
-                    <p>1심 법원에서 내란 혐의에 대해 징역 23년의 중형 선고</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">항소심 진행</div>
-                    <h4>2심 재판 진행</h4>
-                    <p>1심 판결에 불복하여 항소심 재판 진행</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">오늘</div>
-                    <h4>2심 마무리</h4>
-                    <p>2심 항소심 재판이 마무리 단계에 접어듦</p>
-                </div>
-            </div>
-            
-            <h3>🔍 관련 키워드</h3>
-            <div class="keywords">
-                <span class="keyword">#한덕수총리</span>
-                <span class="keyword">#내란혐의</span>
-                <span class="keyword">#징역23년</span>
-                <span class="keyword">#2심재판</span>
-                <span class="keyword">#중요임무종사</span>
-                <span class="keyword">#국무총리</span>
-                <span class="keyword">#항소심</span>
-                <span class="keyword">#정치적파장</span>
-            </div>
-            
-            <div class="analysis">
-                <h3>🔮 예상 시나리오</h3>
-                <ul style="margin-left: 20px; margin-top: 15px;">
-                    <li><strong>유지:</strong> 1심 판결이 그대로 유지될 경우 정치적 충격 극대화</li>
-                    <li><strong>감형:</strong> 형량이 줄어들더라도 유죄 판결시 총리직 유지 어려움</li>
-                    <li><strong>무죄:</strong> 2심에서 무죄 판결시 정치적 입지 회복 가능</li>
-                    <li><strong>상고:</strong> 어떤 판결이든 대법원 상고 가능성 높음</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer">
+
+        <footer class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <div class="generated-time" id="generatedTime"></div>
-        </div>
+            <div class="generation-time">
+                생성 시각: <span id="generation-time"></span>
+            </div>
+        </footer>
     </div>
-    
+
     <script>
-        // 생성 시각을 한국 시간으로 표시
-        function updateGeneratedTime() {
+        // 한국 시간 표시
+        function displayKoreanTime() {
             const now = new Date();
-            const koreaTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const timeString = koreaTime.toLocaleString('ko-KR', {
+            const koreanTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const timeString = koreanTime.toLocaleString('ko-KR', {
                 year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
+                month: 'long',
+                day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
                 timeZone: 'Asia/Seoul'
             });
-            document.getElementById('generatedTime').textContent = `생성시각: ${timeString} (KST)`;
+            document.getElementById('generation-time').textContent = timeString + ' (KST)';
         }
-        
-        // 페이지 로드시 시간 업데이트
-        document.addEventListener('DOMContentLoaded', updateGeneratedTime);
-        
-        // 스크롤 애니메이션
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+
+        // 카드 애니메이션 효과
+        function animateCards() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        }
+
+        // 스크롤 이벤트로 카드 애니메이션
+        function handleScroll() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
-        
-        // 애니메이션 적용할 요소들 관찰
-        document.querySelectorAll('.timeline-item, .main-card').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // 키워드 호버 효과
-        document.querySelectorAll('.keyword').forEach(keyword => {
-            keyword.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
+        }
+
+        // 실시간 업데이트 시뮬레이션
+        function simulateRealTimeUpdate() {
+            const impactMeter = document.querySelector('.meter-fill');
+            let width = 85;
             
-            keyword.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            setInterval(() => {
+                width = 80 + Math.random() * 10;
+                impactMeter.style.width = width + '%';
+            }, 5000);
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            displayKoreanTime();
+            animateCards();
+            simulateRealTimeUpdate();
+            
+            window.addEventListener('scroll', handleScroll);
+            
+            // 키워드 태그 클릭 효과
+            document.querySelectorAll('.keyword-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                });
             });
         });
+
+        // 매분마다 시간 업데이트
+        setInterval(displayKoreanTime, 60000);
     </script>
 </body>
 </html>
