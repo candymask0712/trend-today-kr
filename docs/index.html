@@ -3,449 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중동 정세와 한국 외교 - 실시간 트렌드 분석</title>
+    <title>호르무즈 해협 정상회의 - 한국의 새로운 외교적 역할</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
             line-height: 1.6;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
+        
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
             color: white;
+            margin-bottom: 40px;
         }
-
+        
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #fff, #f0f8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+        
         .header p {
             font-size: 1.2em;
             opacity: 0.9;
         }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .card h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-        }
-
-        .card h2::before {
-            content: "🌍";
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
-
-        .timeline {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline h2 {
-            color: #667eea;
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 1.8em;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: 10px;
-            top: 8px;
-            width: 10px;
-            height: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-        }
-
-        .timeline-item::after {
-            content: "";
-            position: absolute;
-            left: 14px;
-            top: 18px;
-            width: 2px;
-            height: calc(100% + 10px);
-            background: linear-gradient(to bottom, #667eea, transparent);
-        }
-
-        .timeline-item:last-child::after {
-            display: none;
-        }
-
-        .timeline-date {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        
+        .breaking-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.9em;
             font-weight: bold;
-            margin-right: 15px;
-            min-width: 80px;
-            text-align: center;
-        }
-
-        .timeline-content {
-            flex: 1;
-        }
-
-        .keywords {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .keywords h2 {
-            color: #667eea;
             margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.8em;
-        }
-
-        .keyword-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .keyword-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .keyword-tag:hover {
-            transform: scale(1.05);
-        }
-
-        .summary {
-            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #2d3436;
-        }
-
-        .summary h2 {
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-
-        .summary p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        .footer {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .footer p {
-            margin-bottom: 10px;
-        }
-
-        .news-source {
-            background: linear-gradient(45deg, #00b894, #00cec9);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 10px;
-            font-size: 0.8em;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .timeline, .keywords, .summary {
-                padding: 20px;
-            }
-
-            .keyword-grid {
-                gap: 10px;
-            }
-
-            .keyword-tag {
-                padding: 8px 15px;
-                font-size: 0.8em;
-            }
-
-            .timeline-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .timeline-date {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-        }
-
-        .pulse {
             animation: pulse 2s infinite;
         }
-
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.9em;
+        }
+        
+        .timeline-content {
+            margin-top: 5px;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .keyword {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+        
+        .keyword:hover {
+            transform: scale(1.1);
+        }
+        
+        .impact-meter {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .meter-bar {
+            background: #e2e8f0;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #38a169);
+            border-radius: 10px;
+            transition: width 2s ease;
+            animation: fillBar 2s ease-out;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0%; }
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .quote {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #e17055;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 4em;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: #e17055;
+            opacity: 0.3;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+        
+        .news-sources {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .source {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 30px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header pulse">
-            <h1>🕊️ 중동 휴전과 한국 외교</h1>
-            <p>이스라엘-레바논 휴전 합의와 한국의 대응</p>
+        <header class="header">
+            <div class="breaking-badge">🔥 실시간 핫이슈</div>
+            <h1>호르무즈 해협 정상회의</h1>
+            <p>한국의 새로운 중동 외교와 항행 자유 기여</p>
+        </header>
+        
+        <div class="card">
+            <h2>🌍 핵심 이슈 분석</h2>
+            <p>현재 대통령이 호르무즈 해협 정상회의에 참석하여 "호르무즈 항행 자유를 위한 실질적 기여"를 약속했습니다. 이는 전 세계 석유 운송의 핵심 통로인 호르무즈 해협의 안정성에 한국이 적극적으로 참여한다는 의미로, 중동 지역에서의 한국의 외교적 위상 강화를 보여주는 중요한 사건입니다.</p>
+            
+            <div class="impact-meter">
+                <strong>이슈 관심도</strong>
+                <div class="meter-bar">
+                    <div class="meter-fill" style="width: 87%;"></div>
+                </div>
+                <p>87% - 높은 관심도 (국제 정치, 경제적 파급효과)</p>
+            </div>
         </div>
-
-        <div class="summary">
-            <h2>📊 핵심 요약</h2>
-            <p>이스라엘과 레바논 간 휴전 합의가 성사되면서 중동 지역의 긴장이 완화되고 있습니다. 이란을 비롯한 중동 국가들이 일제히 환영 입장을 표명했으며, 한국 정부도 호르무즈 화상 정상회의를 통해 지역 안정화에 기여하고자 합니다.</p>
-        </div>
-
-        <div class="main-content">
+        
+        <div class="grid">
             <div class="card">
-                <h2>🌍 현재 상황</h2>
-                <p><strong>이스라엘-레바논 휴전 합의</strong>가 이루어지면서 중동 지역의 군사적 긴장이 크게 완화되었습니다.</p>
-                <br>
-                <p>이란과 주변 아랍 국가들이 이번 휴전을 <strong>일제히 환영</strong>한다고 발표했으며, 이는 지역 평화 정착에 긍정적 신호로 해석됩니다.</p>
-                <div class="news-source">연합뉴스 · SBS뉴스</div>
+                <h2>⏰ 주요 타임라인</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024년 현재</div>
+                        <div class="timeline-content">호르무즈 해협 정상회의 개막, 대통령 참석 예정</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">회의 진행 중</div>
+                        <div class="timeline-content">대통령 "호르무즈 항행 자유에 실질적 기여" 발언</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">이란 내부</div>
+                        <div class="timeline-content">호르무즈 개방 발표에 이란 강경파 반발, 관영매체 반박보도</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">향후 전망</div>
+                        <div class="timeline-content">한국의 중동 외교 확대 및 에너지 안보 강화 기대</div>
+                    </div>
+                </div>
             </div>
-
+            
             <div class="card">
-                <h2>🇰🇷 한국의 대응</h2>
-                <p>한국 정부는 <strong>호르무즈 화상 정상회의</strong>를 통해 중동 지역 안정화에 기여하겠다는 입장을 밝혔습니다.</p>
-                <br>
-                <p>현직 대통령이 직접 참석하여 "생명·안전에 한 치의 빈틈이 없도록 하겠다"며 강한 의지를 표명했습니다.</p>
-                <div class="news-source">SBS뉴스</div>
-            </div>
-        </div>
-
-        <div class="timeline">
-            <h2>📅 주요 사건 타임라인</h2>
-            <div class="timeline-item">
-                <div class="timeline-date">11월 초</div>
-                <div class="timeline-content">
-                    <strong>중동 분쟁 격화</strong><br>
-                    이스라엘과 레바논 헤즈볼라 간 군사적 충돌 심화
+                <h2>🔑 핵심 키워드</h2>
+                <div class="keywords">
+                    <span class="keyword">#호르무즈해협</span>
+                    <span class="keyword">#항행자유</span>
+                    <span class="keyword">#중동외교</span>
+                    <span class="keyword">#에너지안보</span>
+                    <span class="keyword">#국제협력</span>
+                    <span class="keyword">#이란관계</span>
+                    <span class="keyword">#석유운송</span>
+                    <span class="keyword">#외교정책</span>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">11월 중순</div>
-                <div class="timeline-content">
-                    <strong>국제사회 중재 노력</strong><br>
-                    미국과 유럽연합이 휴전 중재에 나서며 협상 시작
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">11월 26일</div>
-                <div class="timeline-content">
-                    <strong>휴전 합의 발표</strong><br>
-                    이스라엘과 레바논이 공식 휴전에 합의
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">11월 27일</div>
-                <div class="timeline-content">
-                    <strong>중동 국가들 환영 표명</strong><br>
-                    이란, 사우디아라비아 등 주요 중동 국가들이 휴전 환영
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">오늘</div>
-                <div class="timeline-content">
-                    <strong>한국 정상회의 참석</strong><br>
-                    호르무즈 화상 정상회의에서 한국의 입장 발표 예정
+                
+                <div class="quote">
+                    "호르무즈 항행 자유를 위한 실질적 기여를 하겠다"
+                    <br><small>- 대통령 발언</small>
                 </div>
             </div>
         </div>
-
-        <div class="keywords">
-            <h2>🔍 관련 키워드</h2>
-            <div class="keyword-grid">
-                <span class="keyword-tag">#이스라엘레바논휴전</span>
-                <span class="keyword-tag">#중동평화</span>
-                <span class="keyword-tag">#호르무즈정상회의</span>
-                <span class="keyword-tag">#한국외교</span>
-                <span class="keyword-tag">#이란환영</span>
-                <span class="keyword-tag">#지역안정</span>
-                <span class="keyword-tag">#국제협력</span>
-                <span class="keyword-tag">#외교부</span>
-                <span class="keyword-tag">#생명안전</span>
-                <span class="keyword-tag">#화상회의</span>
+        
+        <div class="card">
+            <h2>📊 이슈의 중요성</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🛢️</div>
+                    <strong>에너지 안보</strong>
+                    <p>전 세계 석유 운송량의 20% 통과</p>
+                </div>
+                <div style="background: #fff2e8; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🤝</div>
+                    <strong>외교적 위상</strong>
+                    <p>중동 지역에서 한국의 역할 확대</p>
+                </div>
+                <div style="background: #f0fff4; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">⚖️</div>
+                    <strong>지정학적 균형</strong>
+                    <p>지역 안정성과 평화 기여</p>
+                </div>
             </div>
         </div>
-
-        <div class="footer">
+        
+        <footer class="footer">
+            <div class="news-sources">
+                <div class="source">📺 SBS 뉴스</div>
+                <div class="source">📰 연합뉴스</div>
+            </div>
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p>생성 시각: <span id="current-time"></span> (KST)</p>
-        </div>
+            <p id="generation-time"></p>
+        </footer>
     </div>
-
+    
     <script>
-        // 현재 시간을 한국 시간으로 표시
+        // 한국 시간으로 생성 시각 표시
         function updateTime() {
             const now = new Date();
-            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const timeString = kstTime.toISOString().replace('T', ' ').slice(0, 19);
-            document.getElementById('current-time').textContent = timeString;
-        }
-
-        updateTime();
-
-        // 키워드 클릭 효과
-        document.querySelectorAll('.keyword-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 100);
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
+            const kstOffset = 9 * 60; // KST는 UTC+9
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const kst = new Date(utc + (kstOffset * 60000));
+            
+            const timeString = kst.toLocaleString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Seoul'
             });
-        });
-
-        // 스크롤 애니메이션
-        function handleScroll() {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+            
+            document.getElementById('generation-time').textContent = `생성 시각: ${timeString} (KST)`;
+        }
+        
+        updateTime();
+        
+        // 카드 애니메이션 효과
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }
-
-        // 초기 설정
-        document.querySelectorAll('.card').forEach(card => {
+        });
+        
+        cards.forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
-
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // 페이지 로드 시 실행
-
-        // 동적 배경 효과
-        function createFloatingElements() {
-            const container = document.body;
-            for (let i = 0; i < 5; i++) {
-                const element = document.createElement('div');
-                element.style.position = 'fixed';
-                element.style.width = Math.random() * 100 + 50 + 'px';
-                element.style.height = element.style.width;
-                element.style.background = 'rgba(255, 255, 255, 0.1)';
-                element.style.borderRadius = '50%';
-                element.style.left = Math.random() * 100 + '%';
-                element.style.top = Math.random() * 100 + '%';
-                element.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
-                element.style.pointerEvents = 'none';
-                element.style.zIndex = '-1';
-                container.appendChild(element);
-            }
-        }
-
-        // CSS 애니메이션 추가
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-                50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
-                100% { transform: translateY(0px) rotate(360deg); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
-
-        createFloatingElements();
     </script>
 </body>
 </html>
