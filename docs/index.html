@@ -3,89 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>호르무즈 해협 정상회의 - 한국의 새로운 외교적 역할</title>
+    <title>서울시장 선거 - 오세훈 vs 정원오</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: #333;
-            line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .header {
             text-align: center;
             color: white;
             margin-bottom: 40px;
+            padding: 40px 0;
         }
-        
+
         .header h1 {
-            font-size: 2.5em;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         .header p {
-            font-size: 1.2em;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
-        
+
         .breaking-badge {
             display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: #ff4757;
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 20px;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        
+
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .candidates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .candidate-card {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transform: translateY(0);
             transition: transform 0.3s ease;
         }
-        
-        .card:hover {
+
+        .candidate-card:nth-child(2) {
+            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .candidate-card:hover {
             transform: translateY(-5px);
         }
-        
-        .card h2 {
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            border-left: 4px solid #667eea;
-            padding-left: 15px;
+
+        .candidate-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
-        
+
+        .candidate-party {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .candidate-status {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
         .timeline {
             position: relative;
             padding-left: 30px;
         }
-        
+
         .timeline::before {
             content: '';
             position: absolute;
@@ -95,282 +128,271 @@
             width: 2px;
             background: linear-gradient(to bottom, #667eea, #764ba2);
         }
-        
+
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
-            padding-left: 40px;
+            margin-bottom: 25px;
+            padding-left: 30px;
         }
-        
+
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -8px;
+            left: -37px;
             top: 5px;
-            width: 16px;
-            height: 16px;
-            background: #667eea;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
+            background: #667eea;
             border: 3px solid white;
             box-shadow: 0 0 0 3px #667eea;
         }
-        
+
         .timeline-date {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 0.9em;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
-        
+
         .timeline-content {
-            margin-top: 5px;
+            font-size: 1rem;
+            color: #333;
         }
-        
+
         .keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 20px;
+            justify-content: center;
         }
-        
-        .keyword {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+
+        .keyword-tag {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
             padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            transition: transform 0.3s ease;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: transform 0.2s ease;
         }
-        
-        .keyword:hover {
+
+        .keyword-tag:nth-child(even) {
+            background: linear-gradient(45deg, #3742fa, #2f3542);
+        }
+
+        .keyword-tag:hover {
             transform: scale(1.1);
         }
-        
-        .impact-meter {
-            background: #f7fafc;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .meter-bar {
-            background: #e2e8f0;
-            height: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-        
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #48bb78, #38a169);
-            border-radius: 10px;
-            transition: width 2s ease;
-            animation: fillBar 2s ease-out;
-        }
-        
-        @keyframes fillBar {
-            from { width: 0%; }
-        }
-        
-        .grid {
+
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
-        
-        .quote {
-            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #e17055;
-            font-style: italic;
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            color: #333;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
             position: relative;
         }
-        
-        .quote::before {
-            content: '"';
-            font-size: 4em;
+
+        .section-title::after {
+            content: '';
             position: absolute;
-            top: -10px;
-            left: 10px;
-            color: #e17055;
-            opacity: 0.3;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
-        
+
+        .news-quotes {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .quote-source {
+            font-size: 0.9rem;
+            color: #888;
+            text-align: right;
+        }
+
         .footer {
             text-align: center;
-            color: white;
-            margin-top: 50px;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding: 20px;
         }
-        
-        .footer p {
-            margin: 5px 0;
-            opacity: 0.9;
-        }
-        
-        .news-sources {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .source {
-            background: rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 20px;
-            color: white;
-            font-size: 0.9em;
-        }
-        
+
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .header h1 {
+                font-size: 2rem;
             }
             
-            .header h1 {
-                font-size: 2em;
+            .container {
+                padding: 10px;
             }
             
             .card {
                 padding: 20px;
             }
             
-            .timeline {
-                padding-left: 20px;
-            }
-            
-            .timeline-item {
-                padding-left: 30px;
+            .candidates {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <div class="breaking-badge">🔥 실시간 핫이슈</div>
-            <h1>호르무즈 해협 정상회의</h1>
-            <p>한국의 새로운 중동 외교와 항행 자유 기여</p>
-        </header>
-        
+        <div class="header">
+            <div class="breaking-badge">🔥 HOT ISSUE</div>
+            <h1>서울시장 선거 경쟁 본격화</h1>
+            <p>국민의힘 오세훈 후보 확정, 정원오 후보와 '정책 경쟁' 예고</p>
+        </div>
+
         <div class="card">
-            <h2>🌍 핵심 이슈 분석</h2>
-            <p>현재 대통령이 호르무즈 해협 정상회의에 참석하여 "호르무즈 항행 자유를 위한 실질적 기여"를 약속했습니다. 이는 전 세계 석유 운송의 핵심 통로인 호르무즈 해협의 안정성에 한국이 적극적으로 참여한다는 의미로, 중동 지역에서의 한국의 외교적 위상 강화를 보여주는 중요한 사건입니다.</p>
-            
-            <div class="impact-meter">
-                <strong>이슈 관심도</strong>
-                <div class="meter-bar">
-                    <div class="meter-fill" style="width: 87%;"></div>
+            <div class="section-title">주요 후보</div>
+            <div class="candidates">
+                <div class="candidate-card">
+                    <div class="candidate-name">오세훈</div>
+                    <div class="candidate-party">국민의힘</div>
+                    <div class="candidate-status">서울시장 후보 확정</div>
                 </div>
-                <p>87% - 높은 관심도 (국제 정치, 경제적 파급효과)</p>
-            </div>
-        </div>
-        
-        <div class="grid">
-            <div class="card">
-                <h2>⏰ 주요 타임라인</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024년 현재</div>
-                        <div class="timeline-content">호르무즈 해협 정상회의 개막, 대통령 참석 예정</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">회의 진행 중</div>
-                        <div class="timeline-content">대통령 "호르무즈 항행 자유에 실질적 기여" 발언</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">이란 내부</div>
-                        <div class="timeline-content">호르무즈 개방 발표에 이란 강경파 반발, 관영매체 반박보도</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">향후 전망</div>
-                        <div class="timeline-content">한국의 중동 외교 확대 및 에너지 안보 강화 기대</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h2>🔑 핵심 키워드</h2>
-                <div class="keywords">
-                    <span class="keyword">#호르무즈해협</span>
-                    <span class="keyword">#항행자유</span>
-                    <span class="keyword">#중동외교</span>
-                    <span class="keyword">#에너지안보</span>
-                    <span class="keyword">#국제협력</span>
-                    <span class="keyword">#이란관계</span>
-                    <span class="keyword">#석유운송</span>
-                    <span class="keyword">#외교정책</span>
-                </div>
-                
-                <div class="quote">
-                    "호르무즈 항행 자유를 위한 실질적 기여를 하겠다"
-                    <br><small>- 대통령 발언</small>
+                <div class="candidate-card">
+                    <div class="candidate-name">정원오</div>
+                    <div class="candidate-party">민주당</div>
+                    <div class="candidate-status">"정책 경쟁" 선언</div>
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
-            <h2>📊 이슈의 중요성</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2em; margin-bottom: 10px;">🛢️</div>
-                    <strong>에너지 안보</strong>
-                    <p>전 세계 석유 운송량의 20% 통과</p>
+            <div class="section-title">주요 이슈 현황</div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">주요 후보</div>
                 </div>
-                <div style="background: #fff2e8; padding: 20px; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2em; margin-bottom: 10px;">🤝</div>
-                    <strong>외교적 위상</strong>
-                    <p>중동 지역에서 한국의 역할 확대</p>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">정책 경쟁</div>
                 </div>
-                <div style="background: #f0fff4; padding: 20px; border-radius: 10px; text-align: center;">
-                    <div style="font-size: 2em; margin-bottom: 10px;">⚖️</div>
-                    <strong>지정학적 균형</strong>
-                    <p>지역 안정성과 평화 기여</p>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">관심도</div>
                 </div>
             </div>
         </div>
-        
-        <footer class="footer">
-            <div class="news-sources">
-                <div class="source">📺 SBS 뉴스</div>
-                <div class="source">📰 연합뉴스</div>
+
+        <div class="card">
+            <div class="section-title">타임라인</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">최근</div>
+                    <div class="timeline-content">국민의힘 서울시장 후보에 오세훈 확정 발표</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">이후</div>
+                    <div class="timeline-content">정원오 후보 "정책 경쟁" 응답</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">현재</div>
+                    <div class="timeline-content">서울시장 선거 경쟁 구도 본격화</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">향후</div>
+                    <div class="timeline-content">양 후보 간 정책 대결 예상</div>
+                </div>
             </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">언론 보도</div>
+            <div class="news-quotes">
+                <div class="quote">"국힘 서울시장 후보에 오세훈…정원오 '정책 경쟁'"</div>
+                <div class="quote-source">- SBS 뉴스</div>
+            </div>
+            <div class="news-quotes">
+                <div class="quote">"정원오 후보랑 격차가.." 질문에…작심한듯 한참동안 쏟아낸 말들이"</div>
+                <div class="quote-source">- 바로이뉴스</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-title">관련 키워드</div>
+            <div class="keywords">
+                <div class="keyword-tag">#서울시장선거</div>
+                <div class="keyword-tag">#오세훈</div>
+                <div class="keyword-tag">#정원오</div>
+                <div class="keyword-tag">#국민의힘</div>
+                <div class="keyword-tag">#민주당</div>
+                <div class="keyword-tag">#정책경쟁</div>
+                <div class="keyword-tag">#지방선거</div>
+                <div class="keyword-tag">#서울시정</div>
+            </div>
+        </div>
+
+        <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p id="generation-time"></p>
-        </footer>
+            <p>생성 시각: <span id="current-time"></span> (KST)</p>
+        </div>
     </div>
-    
+
     <script>
-        // 한국 시간으로 생성 시각 표시
+        // 현재 한국 시간 표시
         function updateTime() {
             const now = new Date();
-            const kstOffset = 9 * 60; // KST는 UTC+9
-            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            const kst = new Date(utc + (kstOffset * 60000));
-            
-            const timeString = kst.toLocaleString('ko-KR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'Asia/Seoul'
-            });
-            
-            document.getElementById('generation-time').textContent = `생성 시각: ${timeString} (KST)`;
+            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const timeString = kstTime.toISOString().replace('T', ' ').substring(0, 19);
+            document.getElementById('current-time').textContent = timeString;
         }
-        
+
         updateTime();
-        
-        // 카드 애니메이션 효과
+
+        // 카드 애니메이션
         const cards = document.querySelectorAll('.card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -378,13 +400,23 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        });
-        
+        }, observerOptions);
+
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
             observer.observe(card);
+        });
+
+        // 키워드 태그 클릭 이벤트
+        document.querySelectorAll('.keyword-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
         });
     </script>
 </body>
