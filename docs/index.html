@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한-인도 정상회담 특집 - 500억 달러 교역 시대 개막</title>
+    <title>코스피 사상 최고가 돌파 - 한국 증시 대장정</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,10 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: #333;
-            line-height: 1.6;
         }
 
         .container {
@@ -27,204 +26,184 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
             color: white;
+            margin-bottom: 40px;
             animation: fadeInDown 1s ease-out;
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header p {
-            font-size: 1.2rem;
+        .header .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             opacity: 0.9;
+            font-weight: 300;
         }
 
-        .main-card {
-            background: white;
+        .stock-ticker {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .ticker-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .ticker-item {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .ticker-value {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .ticker-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             animation: fadeInUp 1s ease-out;
         }
 
-        .highlight {
-            background: linear-gradient(135deg, #ff6b6b, #ffa726);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .highlight h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .highlight p {
-            font-size: 1.3rem;
-            font-weight: 500;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .info-card {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .info-card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .info-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .info-card li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .info-card li::before {
-            content: "▶";
-            position: absolute;
-            left: 0;
-            color: #667eea;
+        .card h2 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            color: #333;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
         }
 
         .timeline {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            position: relative;
+            padding-left: 30px;
         }
 
-        .timeline h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #667eea;
-            font-size: 1.8rem;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
         }
 
         .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
+            position: relative;
+            margin-bottom: 30px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
             padding: 20px;
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            margin-left: 15px;
         }
 
-        .timeline-item:hover {
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-            transform: translateX(10px);
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .timeline-date {
-            background: #667eea;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 25px;
-            min-width: 120px;
-            text-align: center;
-            font-weight: bold;
-            margin-right: 20px;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .timeline-content {
-            flex: 1;
-            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
         }
 
         .keywords {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        .keyword {
+        .keyword-tag {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 500;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .keyword:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .keyword-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .stats-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .stats-grid {
+        .impact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
+            margin-top: 20px;
         }
 
-        .stat-item {
-            text-align: center;
+        .impact-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
             padding: 20px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            border-radius: 10px;
-            color: white;
+            border-left: 4px solid #667eea;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            display: block;
+        .impact-title {
+            font-weight: 600;
+            color: #333;
             margin-bottom: 10px;
+        }
+
+        .impact-desc {
+            color: #666;
+            font-size: 0.95rem;
         }
 
         .footer {
             text-align: center;
-            color: white;
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .generated-time {
+            color: rgba(255,255,255,0.8);
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
             font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 10px;
         }
 
         @keyframes fadeInDown {
@@ -250,26 +229,35 @@
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
+            .container {
+                padding: 15px;
             }
-            
-            .main-card {
+
+            .card {
                 padding: 20px;
+                margin-bottom: 20px;
             }
-            
-            .highlight h2 {
-                font-size: 1.5rem;
-            }
-            
-            .timeline-item {
+
+            .ticker-display {
                 flex-direction: column;
-                text-align: center;
+                gap: 15px;
             }
-            
-            .timeline-date {
-                margin-right: 0;
-                margin-bottom: 15px;
+
+            .ticker-item {
+                min-width: 100%;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item {
+                margin-left: 10px;
+                padding: 15px;
+            }
+
+            .timeline-item::before {
+                left: -25px;
             }
         }
     </style>
@@ -277,183 +265,161 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🇰🇷 한-인도 정상회담 🇮🇳</h1>
-            <p>500억 달러 교역 시대, 새로운 전략적 파트너십의 시작</p>
+            <h1>📈 코스피 사상 최고가 돌파</h1>
+            <div class="subtitle">한국 증시의 역사적 순간을 함께하세요</div>
         </div>
 
-        <div class="main-card">
-            <div class="highlight">
-                <h2>핵심 성과</h2>
-                <p>"교역 규모 2배 확대, 에너지 공급망 협력 강화"</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>🤝 주요 합의사항</h3>
-                    <ul>
-                        <li>한-인도 교역 규모 2배 확대 목표</li>
-                        <li>500억 달러 교역 시대 개막</li>
-                        <li>경제협력 전담데스크 설치</li>
-                        <li>나프타 등 에너지 수급 협력</li>
-                        <li>스마트 인프라 구축 협력</li>
-                    </ul>
+        <div class="stock-ticker">
+            <div class="ticker-display">
+                <div class="ticker-item">
+                    <span class="ticker-value" id="kospi-value">2,650.5</span>
+                    <div class="ticker-label">KOSPI</div>
                 </div>
-
-                <div class="info-card">
-                    <h3>🏛️ 정치적 의미</h3>
-                    <ul>
-                        <li>아시아 경제 허브 간 연대 강화</li>
-                        <li>공급망 다변화 전략</li>
-                        <li>신남방정책의 핵심 성과</li>
-                        <li>중장기 경제안보 확보</li>
-                        <li>문화교류 확대 기반 마련</li>
-                    </ul>
+                <div class="ticker-item">
+                    <span class="ticker-value" style="color: #27ae60;">+1.2%</span>
+                    <div class="ticker-label">전일 대비</div>
                 </div>
-
-                <div class="info-card">
-                    <h3>🎭 문화 교류</h3>
-                    <ul>
-                        <li>김혜경 여사 K팝 행사 참석</li>
-                        <li>JYP와의 협력 행사</li>
-                        <li>한류 확산 기반 조성</li>
-                        <li>청년 교류 프로그램 확대</li>
-                        <li>디지털 콘텐츠 협력</li>
-                    </ul>
+                <div class="ticker-item">
+                    <span class="ticker-value" style="color: #3498db;">🚀</span>
+                    <div class="ticker-label">사상 최고가</div>
                 </div>
             </div>
+        </div>
 
+        <div class="card">
+            <h2>🔥 핵심 이슈</h2>
+            <p style="font-size: 1.1rem; color: #444; line-height: 1.8;">
+                한국 증시가 <strong>사상 최고가</strong>를 기록하며 투자자들의 주목을 받고 있습니다. 
+                반도체 업종을 중심으로 한 기술주 강세와 함께 ETF 시장에서도 관련 상품들이 우후죽순 등장하고 있어, 
+                향후 숨고르기 여부에 시장의 관심이 집중되고 있습니다.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>📊 주요 동향 타임라인</h2>
             <div class="timeline">
-                <h3>📅 정상회담 타임라인</h3>
                 <div class="timeline-item">
-                    <div class="timeline-date">1월 초</div>
+                    <div class="timeline-date">2024.01 - 상반기</div>
                     <div class="timeline-content">
-                        <strong>정상회담 준비:</strong> 양국 경제협력 의제 사전 논의 및 협정 초안 작성
+                        <strong>반도체 업종 회복세</strong><br>
+                        삼성전자, SK하이닉스 등 대형 반도체 기업들의 실적 개선 기대감이 증시 상승을 견인
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">회담 당일</div>
+                    <div class="timeline-date">2024.10 - 현재</div>
                     <div class="timeline-content">
-                        <strong>핵심 합의:</strong> 교역 2배 확대, 에너지 협력, 전담데스크 설치 합의
+                        <strong>ETF 시장 반도체 열풍</strong><br>
+                        '삼전닉스' 담은 반도체 ETF 상품들이 우후죽순 출시되며 개인투자자들의 높은 관심
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">문화행사</div>
+                    <div class="timeline-date">2024.10.22</div>
                     <div class="timeline-content">
-                        <strong>K팝 행사:</strong> 김혜경 여사와 JYP 참석, 한류 확산 기반 마련
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">향후 계획</div>
-                    <div class="timeline-content">
-                        <strong>후속 조치:</strong> 전담데스크 운영, 구체적 협력 프로젝트 추진
+                        <strong>코스피 사상 최고가 돌파</strong><br>
+                        장중 2,650선을 돌파하며 역사적인 순간을 기록, 시장 참가자들의 숨고르기 여부에 관심 집중
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="stats-section">
-                <h3 style="text-align: center; margin-bottom: 30px; color: #667eea; font-size: 1.8rem;">📊 주요 수치</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">500억$</span>
-                        <div>목표 교역 규모</div>
+        <div class="card">
+            <h2>💡 시장 영향 요인</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-title">🔬 반도체 업종 강세</div>
+                    <div class="impact-desc">
+                        삼성전자, SK하이닉스 등 주력 반도체 기업들의 실적 개선과 메모리 반도체 시장 회복
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">2배</span>
-                        <div>교역 확대 목표</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-title">📈 ETF 시장 확대</div>
+                    <div class="impact-desc">
+                        반도체 관련 ETF 상품 급증으로 개인투자자들의 간접투자 증가
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">14억</span>
-                        <div>인도 인구 (명)</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-title">🌐 글로벌 경제 회복</div>
+                    <div class="impact-desc">
+                        미국 경제 안정화와 중국 경기 부양책으로 수출 기업들에게 긍정적 영향
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1개</span>
-                        <div>경제협력 전담데스크</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-title">💰 유동성 공급</div>
+                    <div class="impact-desc">
+                        낮은 금리 환경과 풍부한 시장 유동성이 주식 시장 상승 동력 제공
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 25px; border-radius: 15px; color: white; text-align: center;">
-                <h3 style="margin-bottom: 15px;">🔮 전망과 기대효과</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8;">
-                    이번 한-인도 정상회담은 양국 경제협력의 새로운 전환점이 될 것으로 전망됩니다. 
-                    특히 에너지 안보와 공급망 다변화, 그리고 K팝을 통한 소프트파워 확산까지 
-                    경제와 문화가 함께 어우러진 종합적 파트너십이 기대됩니다.
-                </p>
-            </div>
-
-            <div style="margin-top: 30px;">
-                <h3 style="text-align: center; margin-bottom: 20px; color: #667eea;">🏷️ 관련 키워드</h3>
-                <div class="keywords">
-                    <span class="keyword">#한인도정상회담</span>
-                    <span class="keyword">#500억달러교역</span>
-                    <span class="keyword">#신남방정책</span>
-                    <span class="keyword">#에너지협력</span>
-                    <span class="keyword">#경제안보</span>
-                    <span class="keyword">#K팝외교</span>
-                    <span class="keyword">#전담데스크</span>
-                    <span class="keyword">#공급망다변화</span>
-                    <span class="keyword">#아시아경제협력</span>
-                    <span class="keyword">#문화교류</span>
-                </div>
+        <div class="card">
+            <h2>🏷️ 관련 키워드</h2>
+            <div class="keywords">
+                <div class="keyword-tag">#코스피사상최고가</div>
+                <div class="keyword-tag">#반도체강세</div>
+                <div class="keyword-tag">#삼성전자</div>
+                <div class="keyword-tag">#SK하이닉스</div>
+                <div class="keyword-tag">#ETF열풍</div>
+                <div class="keyword-tag">#기술주</div>
+                <div class="keyword-tag">#증시호조</div>
+                <div class="keyword-tag">#투자심리개선</div>
             </div>
         </div>
 
         <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <div class="generated-time" id="generated-time"></div>
+            <p>생성 시각: <span id="generation-time"></span> (KST)</p>
         </div>
     </div>
 
     <script>
-        // 현재 한국 시간 표시
+        // 현재 시각을 한국 시간으로 표시
         function updateTime() {
             const now = new Date();
-            const koreaTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const timeString = koreaTime.toLocaleString('ko-KR', {
-                timeZone: 'Asia/Seoul',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
-            document.getElementById('generated-time').textContent = `생성 시각: ${timeString} (KST)`;
+            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const timeString = kstTime.toISOString().replace('T', ' ').slice(0, 19);
+            document.getElementById('generation-time').textContent = timeString;
         }
 
-        // 페이지 로드 시 시간 업데이트
-        updateTime();
+        // 주식 가격 애니메이션
+        function animateValue(element, start, end, duration) {
+            const range = end - start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = current.toLocaleString();
+                
+                if (current === end) {
+                    clearInterval(timer);
+                    element.textContent = end.toLocaleString('ko-KR', {
+                        minimumFractionDigits: 1,
+                        maximumFractionDigits: 1
+                    });
+                }
+            }, stepTime);
+        }
 
-        // 키워드 클릭 이벤트
-        document.querySelectorAll('.keyword').forEach(keyword => {
-            keyword.addEventListener('click', function() {
-                this.style.background = 'linear-gradient(135deg, #ff6b6b, #ffa726)';
+        // 키워드 태그 클릭 이벤트
+        document.querySelectorAll('.keyword-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const keyword = this.textContent;
+                this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
-                }, 300);
+                    this.style.transform = 'translateY(-2px)';
+                }, 150);
             });
         });
 
-        // 스크롤 애니메이션
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.info-card, .timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
+        // 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            
+            // 주식 가격 카운트업 애니메이션
+            const kospiElement = document.getElementById('kospi-value');
+            animateValue(kospiElement, 2500, 2650.5, 2000);
         });
     </script>
 </body>
