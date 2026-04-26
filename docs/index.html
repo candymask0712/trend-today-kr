@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이진숙 대구시장 불출마 선언 - 정치 트렌드</title>
+    <title>대구 빅매치: 김부겸 vs 추경호 - 정치 지형 변화의 신호탄</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -27,92 +27,73 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
             color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
         }
 
         .header h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header .subtitle {
+        .header p {
             font-size: 1.2rem;
             opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .trending-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff416c, #ff4757);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
         }
 
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
+            background: white;
+            border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         .card h2 {
-            color: #4a90e2;
+            color: #4a5568;
             margin-bottom: 20px;
             font-size: 1.5rem;
-            border-left: 4px solid #4a90e2;
-            padding-left: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
         }
 
-        .key-points {
-            grid-column: 1 / -1;
-        }
-
-        .point-item {
+        .candidate-info {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            padding: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 10px;
+            border-radius: 15px;
             color: white;
-            font-weight: 500;
         }
 
-        .point-number {
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
+        .candidate-info.blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .candidate-name {
+            font-size: 1.8rem;
             font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .candidate-party {
+            font-size: 1rem;
+            opacity: 0.9;
         }
 
         .timeline {
@@ -126,329 +107,309 @@
             left: 15px;
             top: 0;
             bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #4a90e2, #764ba2);
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 25px;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 10px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27px;
-            top: 15px;
-            width: 12px;
-            height: 12px;
-            background: #4a90e2;
+            left: -47px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background: #667eea;
             border-radius: 50%;
             border: 3px solid white;
         }
 
-        .timeline-time {
-            font-size: 0.9rem;
-            color: #666;
+        .timeline-date {
             font-weight: bold;
-            margin-bottom: 5px;
+            color: #667eea;
+            margin-bottom: 10px;
         }
 
         .keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 20px;
         }
 
-        .keyword-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .keyword {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 8px 15px;
+            padding: 8px 16px;
             border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .keyword-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .analysis-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
         }
 
         .impact-meter {
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 5px;
             margin: 20px 0;
         }
 
-        .meter-bar {
-            width: 100%;
-            height: 20px;
-            background: #e0e0e0;
+        .impact-bar {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            width: 85%;
+            transition: width 1s ease;
+        }
+
+        .analysis-points {
+            list-style: none;
+        }
+
+        .analysis-points li {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9ff;
             border-radius: 10px;
-            overflow: hidden;
+            border-left: 4px solid #667eea;
             position: relative;
         }
 
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #ffa500, #ff4757);
-            width: 85%;
-            border-radius: 10px;
-            animation: fillAnimation 2s ease-out;
-        }
-
-        @keyframes fillAnimation {
-            from { width: 0%; }
-            to { width: 85%; }
-        }
-
-        .meter-label {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #ff4757;
+        .analysis-points li::before {
+            content: '📊';
+            margin-right: 10px;
         }
 
         .footer {
             text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 40px;
-            padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 50px;
         }
 
-        .generation-info {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+        .footer p {
+            opacity: 0.8;
+            margin: 5px 0;
         }
 
-        .timestamp {
-            font-size: 0.8rem;
-            opacity: 0.7;
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ff4757;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
             }
-
+            
             .main-content {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
-
-            .card {
-                padding: 20px;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .point-item {
+            
+            .candidate-info {
                 flex-direction: column;
                 text-align: center;
             }
-
-            .point-number {
-                margin-right: 0;
-                margin-bottom: 10px;
+            
+            .timeline {
+                padding-left: 20px;
             }
         }
 
-        .quote-box {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border-left: 5px solid #ff6b6b;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            font-style: italic;
-            position: relative;
+        .vs-section {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .quote-box::before {
-            content: '"';
-            font-size: 3rem;
-            color: #ff6b6b;
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            opacity: 0.5;
+        .vs-text {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🔥 이진숙 대구시장 불출마 선언</h1>
-            <p class="subtitle">정치권에 파장을 일으키고 있는 핫이슈</p>
-            <span class="trending-badge">🔥 실시간 트렌딩</span>
-        </div>
+        <header class="header">
+            <h1><span class="live-indicator"></span>대구 빅매치: 김부겸 vs 추경호</h1>
+            <p>민주당 vs 국민의힘, 대구에서 펼쳐지는 정치 지형 변화의 서막</p>
+        </header>
 
-        <div class="key-points card">
-            <h2>📌 핵심 포인트</h2>
-            <div class="point-item">
-                <div class="point-number">1</div>
-                <div>이진숙 전 방통위원장, 대구시장 출마 포기 선언</div>
+        <div class="vs-section">
+            <div class="candidate-info">
+                <div>
+                    <div class="candidate-name">김부겸</div>
+                    <div class="candidate-party">더불어민주당</div>
+                </div>
             </div>
-            <div class="point-item">
-                <div class="point-number">2</div>
-                <div>장동혁 의원에게 "돌이라도 맞겠다" 발언으로 화제</div>
-            </div>
-            <div class="point-item">
-                <div class="point-number">3</div>
-                <div>국민의힘 "대구 지켜달라"며 장동혁 출마 압박</div>
-            </div>
-            <div class="point-item">
-                <div class="point-number">4</div>
-                <div>대구 정치지형 재편 예고, 여권 내 갈등 심화</div>
+            <div class="vs-text">VS</div>
+            <div class="candidate-info blue">
+                <div>
+                    <div class="candidate-name">추경호</div>
+                    <div class="candidate-party">국민의힘</div>
+                </div>
             </div>
         </div>
 
         <div class="main-content">
             <div class="card">
-                <h2>⏰ 사건 타임라인</h2>
+                <h2>📈 이슈 임팩트 지수</h2>
+                <div class="impact-meter">
+                    <div class="impact-bar">85% 고관심</div>
+                </div>
+                <p><strong>왜 주목받고 있나?</strong></p>
+                <ul class="analysis-points">
+                    <li>민주당의 전통적 국민의힘 텃밭 도전</li>
+                    <li>김부겸의 '최초 대구시장' 도전 의지</li>
+                    <li>추경호의 최종 선출로 빅매치 성사</li>
+                    <li>여권 총출동으로 관심 집중</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>⏰ 주요 타임라인</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-time">최근</div>
-                        <div>이진숙 대구시장 불출마 선언</div>
+                        <div class="timeline-date">2024년 1월 27일</div>
+                        <div>추경호 최종 선출, 대구서 김부겸과 '빅매치' 성사 확정</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-time">직후</div>
-                        <div>장동혁 측 "돌이라도 맞겠다" 반응</div>
+                        <div class="timeline-date">선거사무소 개소식</div>
+                        <div>김부겸 선거사무소에 여권 총출동, "대구가 국힘 혼내야" 발언</div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-time">현재</div>
-                        <div>국민의힘 내부 "대구 지켜달라" 압박</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">예상</div>
-                        <div>대구 정치판 재편 가속화</div>
+                        <div class="timeline-date">정청래 지원 선언</div>
+                        <div>"'최초 대구시장' 위해서라면!" - "김부겸이 오지 말라면 안 간다"</div>
                     </div>
                 </div>
             </div>
 
             <div class="card">
+                <h2>🔍 핵심 분석 포인트</h2>
+                <ul class="analysis-points">
+                    <li><strong>지역 정치 판도 변화:</strong> 전통적 보수 텃밭에서의 진보 도전</li>
+                    <li><strong>상징적 의미:</strong> 김부겸의 '최초 대구시장' 도전</li>
+                    <li><strong>전국적 관심:</strong> 양당의 핵심 인물들이 맞붙는 구조</li>
+                    <li><strong>선거 전략:</strong> 민주당의 대구 공략 본격화</li>
+                </ul>
+            </div>
+
+            <div class="card">
                 <h2>🏷️ 관련 키워드</h2>
                 <div class="keywords">
-                    <span class="keyword-tag">#이진숙</span>
-                    <span class="keyword-tag">#대구시장</span>
-                    <span class="keyword-tag">#불출마</span>
-                    <span class="keyword-tag">#장동혁</span>
-                    <span class="keyword-tag">#국민의힘</span>
-                    <span class="keyword-tag">#정치갈등</span>
-                    <span class="keyword-tag">#대구정치</span>
-                    <span class="keyword-tag">#선거전략</span>
+                    <span class="keyword">#대구시장선거</span>
+                    <span class="keyword">#김부겸</span>
+                    <span class="keyword">#추경호</span>
+                    <span class="keyword">#빅매치</span>
+                    <span class="keyword">#정치지형변화</span>
+                    <span class="keyword">#대구정치</span>
+                    <span class="keyword">#여권총출동</span>
+                    <span class="keyword">#보수텃밭도전</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💭 향후 전망</h2>
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 25px; border-radius: 15px; margin-top: 20px;">
+                    <h3 style="margin-bottom: 15px;">🎯 주요 관전 포인트</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin: 10px 0;">✓ 민주당의 대구 공략 전략 효과</li>
+                        <li style="margin: 10px 0;">✓ 국민의힘의 텃밭 수성 능력</li>
+                        <li style="margin: 10px 0;">✓ 전국 정치 지형에 미칠 파급 효과</li>
+                        <li style="margin: 10px 0;">✓ 시민들의 실제 반응과 지지율 변화</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="analysis-section">
-            <h2>📊 정치적 파급효과 분석</h2>
-            <div class="quote-box">
-                이진숙의 불출마 선언은 대구 정치지형을 완전히 바꿀 수 있는 중대한 결정으로 평가됩니다.
-            </div>
-            
-            <h3>📈 이슈 관심도</h3>
-            <div class="impact-meter">
-                <div class="meter-bar">
-                    <div class="meter-fill"></div>
-                </div>
-                <div class="meter-label">관심도: 85% (매우 높음)</div>
-            </div>
-
-            <h3>🎯 주요 영향</h3>
-            <ul style="margin-left: 20px; margin-top: 15px;">
-                <li><strong>대구 여권 후보 재편:</strong> 새로운 후보 발굴 필요성 대두</li>
-                <li><strong>장동혁 부담 가중:</strong> 당내 출마 압박 증가</li>
-                <li><strong>선거 전략 변화:</strong> 국민의힘 대구 선거 전략 수정 불가피</li>
-                <li><strong>정치적 파장:</strong> 여권 내 갈등 구조 심화</li>
-            </ul>
-        </div>
-
-        <div class="footer">
-            <div class="generation-info">
-                이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다
-            </div>
-            <div class="timestamp">
-                생성 시각: <span id="timestamp"></span> (KST)
-            </div>
-        </div>
+        <footer class="footer">
+            <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
+            <p>생성 시각: <span id="currentTime"></span> (KST)</p>
+        </footer>
     </div>
 
     <script>
-        // 현재 한국 시간 표시
-        function updateTimestamp() {
+        // 현재 시각을 한국 시간으로 표시
+        function updateTime() {
             const now = new Date();
-            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const timeString = kstTime.toISOString().replace('T', ' ').substring(0, 19);
-            document.getElementById('timestamp').textContent = timeString;
+            const koreaTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Seoul"}));
+            const timeString = koreaTime.toLocaleString('ko-KR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            document.getElementById('currentTime').textContent = timeString;
         }
 
-        // 키워드 태그 클릭 효과
-        document.querySelectorAll('.keyword-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 100);
-            });
-        });
-
-        // 카드 호버 효과 강화
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.3)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
-            });
-        });
+        // 페이지 로드시 시간 업데이트
+        updateTime();
+        
+        // 매초마다 시간 업데이트
+        setInterval(updateTime, 1000);
 
         // 스크롤 애니메이션
-        function animateOnScroll() {
-            const cards = document.querySelectorAll('.card, .analysis-section');
-            
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 const cardTop = card.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+                const cardVisible = 150;
                 
-                if (cardTop < windowHeight * 0.8) {
+                if (cardTop < window.innerHeight - cardVisible) {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }
             });
-        }
-
-        // 초기 설정
-        document.addEventListener('DOMContentLoaded', function() {
-            updateTimestamp();
-            
-            // 초기 카드 숨기기
-            document.querySelectorAll('.card, .analysis-section').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.6s ease';
-            });
-            
-            // 즉시 애니메이션 실행
-            setTimeout(animateOnScroll, 100);
         });
 
-        window.addEventListener('scroll', animateOnScroll);
+        // 초기 카드 상태 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                // 순차적으로 카드가 나타나도록 설정
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
     </script>
 </body>
 </html>
