@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>대구 빅매치: 김부겸 vs 추경호 - 정치 지형 변화의 신호탄</title>
+    <title>국민의힘 내홍 특집 - 선거 37일 전 당내 분열 심화</title>
     <style>
         * {
             margin: 0;
@@ -12,11 +12,11 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #333;
         }
 
         .container {
@@ -29,360 +29,458 @@
             text-align: center;
             color: white;
             margin-bottom: 40px;
-            padding: 40px 20px;
+            animation: fadeInUp 1s ease-out;
         }
 
         .header h1 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header p {
+        .header .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .trending-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
         }
 
         .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 2fr 1fr;
             gap: 30px;
             margin-bottom: 40px;
         }
 
-        .card {
-            background: white;
+        .news-card {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .sidebar {
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
-        .card h2 {
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        .candidate-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .candidate-info.blue {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        .candidate-name {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .candidate-party {
-            font-size: 1rem;
-            opacity: 0.9;
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
         }
 
         .timeline {
             position: relative;
-            padding-left: 30px;
+            padding-left: 20px;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 15px;
+            left: 0;
             top: 0;
             bottom: 0;
-            width: 3px;
+            width: 2px;
             background: linear-gradient(to bottom, #667eea, #764ba2);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9ff;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            padding-left: 25px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -47px;
-            top: 25px;
-            width: 15px;
-            height: 15px;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
             background: #667eea;
             border-radius: 50%;
-            border: 3px solid white;
+            box-shadow: 0 0 0 3px white, 0 0 0 5px #667eea;
         }
 
         .timeline-date {
             font-weight: bold;
             color: #667eea;
-            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-content {
+            margin-top: 5px;
+            color: #555;
         }
 
         .keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 20px;
         }
 
-        .keyword {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .keyword-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .keyword-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .quote-box {
+            background: linear-gradient(45deg, #ffa726, #fb8c00);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            position: relative;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.5;
         }
 
         .impact-meter {
-            background: #f0f0f0;
-            border-radius: 20px;
-            padding: 5px;
-            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
         }
 
         .impact-bar {
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            height: 30px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            width: 85%;
-            transition: width 1s ease;
-        }
-
-        .analysis-points {
-            list-style: none;
-        }
-
-        .analysis-points li {
-            padding: 15px;
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
             margin: 10px 0;
-            background: #f8f9ff;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            position: relative;
         }
 
-        .analysis-points li::before {
-            content: '📊';
-            margin-right: 10px;
+        .impact-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #ffc107, #dc3545);
+            width: 85%;
+            border-radius: 5px;
+            animation: fillBar 2s ease-out;
         }
 
         .footer {
             text-align: center;
             color: white;
-            padding: 30px 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            margin-top: 50px;
-        }
-
-        .footer p {
             opacity: 0.8;
-            margin: 5px 0;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
 
-        .live-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #ff4757;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-            margin-right: 10px;
+        .generation-time {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: 85%; }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
-            
+
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
             .main-content {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-            
-            .candidate-info {
-                flex-direction: column;
-                text-align: center;
+
+            .news-card, .card {
+                padding: 20px;
             }
-            
+
+            .keywords {
+                justify-content: center;
+            }
+
             .timeline {
+                padding-left: 15px;
+            }
+
+            .timeline-item {
                 padding-left: 20px;
             }
         }
 
-        .vs-section {
-            text-align: center;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        .breaking-news {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: flashAlert 3s infinite;
         }
 
-        .vs-text {
-            font-size: 4rem;
-            font-weight: bold;
-            color: #667eea;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        @keyframes flashAlert {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .party-status {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin: 20px 0;
+        }
+
+        .status-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .status-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        @media (max-width: 480px) {
+            .party-status {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1><span class="live-indicator"></span>대구 빅매치: 김부겸 vs 추경호</h1>
-            <p>민주당 vs 국민의힘, 대구에서 펼쳐지는 정치 지형 변화의 서막</p>
+            <div class="trending-badge">🔥 실시간 HOT 이슈</div>
+            <h1>국민의힘 대분열</h1>
+            <p class="subtitle">재보선 37일 전, "사실상 궐위 상태" vs "그만 흔들라" 격돌</p>
+            
+            <div class="party-status">
+                <div class="status-item">
+                    <div class="status-number">37일</div>
+                    <div>재보선까지</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-number">위기</div>
+                    <div>당 내부 상황</div>
+                </div>
+            </div>
         </header>
 
-        <div class="vs-section">
-            <div class="candidate-info">
-                <div>
-                    <div class="candidate-name">김부겸</div>
-                    <div class="candidate-party">더불어민주당</div>
+        <main class="main-content">
+            <section class="news-card">
+                <div class="breaking-news">
+                    <strong>🚨 속보:</strong> 국민의힘 하정우·전은수 사의 표명, 김용 공천 배제 확정
                 </div>
-            </div>
-            <div class="vs-text">VS</div>
-            <div class="candidate-info blue">
-                <div>
-                    <div class="candidate-name">추경호</div>
-                    <div class="candidate-party">국민의힘</div>
-                </div>
-            </div>
-        </div>
 
-        <div class="main-content">
-            <div class="card">
-                <h2>📈 이슈 임팩트 지수</h2>
+                <h2 style="color: #667eea; margin-bottom: 20px;">당 분열의 핵심 쟁점</h2>
+                
+                <p style="font-size: 1.1rem; margin-bottom: 20px; line-height: 1.8;">
+                    재보선을 37일 앞둔 시점에서 국민의힘이 심각한 내홍에 빠졌다. 
+                    당 내부에서는 "사실상 궐위 상태"라는 비판과 "그만 흔들라"는 반박이 격돌하고 있으며, 
+                    주요 인사들의 사의 표명이 잇따르고 있다.
+                </p>
+
+                <div class="quote-box">
+                    젊은 XX가 무슨 시장이냐며 음료수를... 사실상 테러
+                </div>
+
+                <h3 style="color: #667eea; margin: 25px 0 15px 0;">현재 상황 분석</h3>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li><strong>김용 후보:</strong> 재보선 공천에서 배제 확정</li>
+                    <li><strong>하정우:</strong> '부산 북갑' 등판 후 사의 표명</li>
+                    <li><strong>전은수:</strong> 동반 사의 표명으로 당내 충격 가중</li>
+                    <li><strong>조응천:</strong> 개혁신당에서 출사표, "추다르크" 전략</li>
+                </ul>
+
                 <div class="impact-meter">
-                    <div class="impact-bar">85% 고관심</div>
-                </div>
-                <p><strong>왜 주목받고 있나?</strong></p>
-                <ul class="analysis-points">
-                    <li>민주당의 전통적 국민의힘 텃밭 도전</li>
-                    <li>김부겸의 '최초 대구시장' 도전 의지</li>
-                    <li>추경호의 최종 선출로 빅매치 성사</li>
-                    <li>여권 총출동으로 관심 집중</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2>⏰ 주요 타임라인</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024년 1월 27일</div>
-                        <div>추경호 최종 선출, 대구서 김부겸과 '빅매치' 성사 확정</div>
+                    <h4 style="margin-bottom: 10px;">정치적 파장도</h4>
+                    <div class="impact-bar">
+                        <div class="impact-fill"></div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">선거사무소 개소식</div>
-                        <div>김부겸 선거사무소에 여권 총출동, "대구가 국힘 혼내야" 발언</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">정청래 지원 선언</div>
-                        <div>"'최초 대구시장' 위해서라면!" - "김부겸이 오지 말라면 안 간다"</div>
+                    <p style="font-size: 0.9rem; color: #666;">85% - 매우 높음 (재보선 결과에 직접적 영향 예상)</p>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>📅 주요 일정</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">오늘</div>
+                            <div class="timeline-content">하정우·전은수 사의 표명</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">지난주</div>
+                            <div class="timeline-content">김용 공천 배제 결정</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">37일 후</div>
+                            <div class="timeline-content">재보선 투표일</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h2>🔍 핵심 분석 포인트</h2>
-                <ul class="analysis-points">
-                    <li><strong>지역 정치 판도 변화:</strong> 전통적 보수 텃밭에서의 진보 도전</li>
-                    <li><strong>상징적 의미:</strong> 김부겸의 '최초 대구시장' 도전</li>
-                    <li><strong>전국적 관심:</strong> 양당의 핵심 인물들이 맞붙는 구조</li>
-                    <li><strong>선거 전략:</strong> 민주당의 대구 공략 본격화</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h2>🏷️ 관련 키워드</h2>
-                <div class="keywords">
-                    <span class="keyword">#대구시장선거</span>
-                    <span class="keyword">#김부겸</span>
-                    <span class="keyword">#추경호</span>
-                    <span class="keyword">#빅매치</span>
-                    <span class="keyword">#정치지형변화</span>
-                    <span class="keyword">#대구정치</span>
-                    <span class="keyword">#여권총출동</span>
-                    <span class="keyword">#보수텃밭도전</span>
+                <div class="card">
+                    <h3>🔍 연관 키워드</h3>
+                    <div class="keywords">
+                        <span class="keyword-tag">#국민의힘</span>
+                        <span class="keyword-tag">#재보선</span>
+                        <span class="keyword-tag">#당내분열</span>
+                        <span class="keyword-tag">#김용</span>
+                        <span class="keyword-tag">#하정우</span>
+                        <span class="keyword-tag">#전은수</span>
+                        <span class="keyword-tag">#부산북갑</span>
+                        <span class="keyword-tag">#사의표명</span>
+                        <span class="keyword-tag">#궐위상태</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <h2>💭 향후 전망</h2>
-                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 25px; border-radius: 15px; margin-top: 20px;">
-                    <h3 style="margin-bottom: 15px;">🎯 주요 관전 포인트</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin: 10px 0;">✓ 민주당의 대구 공략 전략 효과</li>
-                        <li style="margin: 10px 0;">✓ 국민의힘의 텃밭 수성 능력</li>
-                        <li style="margin: 10px 0;">✓ 전국 정치 지형에 미칠 파급 효과</li>
-                        <li style="margin: 10px 0;">✓ 시민들의 실제 반응과 지지율 변화</li>
+                <div class="card">
+                    <h3>📊 여론 동향</h3>
+                    <div style="margin: 15px 0;">
+                        <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                            <span>당내 결속 우려</span>
+                            <span style="color: #e74c3c; font-weight: bold;">78%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                            <span>재보선 영향</span>
+                            <span style="color: #f39c12; font-weight: bold;">65%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                            <span>조기 수습 필요</span>
+                            <span style="color: #27ae60; font-weight: bold;">89%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 주목 포인트</h3>
+                    <ul style="line-height: 1.8;">
+                        <li>재보선까지 37일, 시간 부족</li>
+                        <li>연쇄 사의로 당 조직 공백</li>
+                        <li>상대당의 "추다르크" 전략</li>
+                        <li>부산 지역 표심 변화</li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </aside>
+        </main>
 
         <footer class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p>생성 시각: <span id="currentTime"></span> (KST)</p>
+            <div class="generation-time">
+                생성시각: <span id="currentTime"></span> (KST)
+            </div>
         </footer>
     </div>
 
     <script>
-        // 현재 시각을 한국 시간으로 표시
+        // 현재 시간을 한국 시간으로 표시
         function updateTime() {
             const now = new Date();
-            const koreaTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Seoul"}));
-            const timeString = koreaTime.toLocaleString('ko-KR', {
+            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const timeString = kstTime.toLocaleString('ko-KR', {
                 year: 'numeric',
                 month: '2-digit',
                 day: '2-digit',
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
-                hour12: false
+                timeZone: 'Asia/Seoul'
             });
             document.getElementById('currentTime').textContent = timeString;
         }
 
-        // 페이지 로드시 시간 업데이트
         updateTime();
-        
-        // 매초마다 시간 업데이트
         setInterval(updateTime, 1000);
 
+        // 키워드 태그 클릭 효과
+        document.querySelectorAll('.keyword-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 100);
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
         // 스크롤 애니메이션
-        window.addEventListener('scroll', function() {
+        function animateOnScroll() {
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 const cardTop = card.getBoundingClientRect().top;
@@ -393,23 +491,10 @@
                     card.style.transform = 'translateY(0)';
                 }
             });
-        });
+        }
 
-        // 초기 카드 상태 설정
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
-                // 순차적으로 카드가 나타나도록 설정
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
