@@ -3,496 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>국민의힘 내홍 특집 - 선거 37일 전 당내 분열 심화</title>
+    <title>트럼프 한정판 여권 발급 - 미국 정치 새 역사</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
             color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
+        
         .header {
             text-align: center;
-            color: white;
             margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInDown 1s ease-out;
         }
-
+        
         .header h1 {
+            color: white;
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+        
         .header .subtitle {
+            color: rgba(255,255,255,0.9);
             font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
+            font-weight: 300;
         }
-
-        .trending-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .news-card {
-            background: rgba(255, 255, 255, 0.95);
+        
+        .card {
+            background: rgba(255,255,255,0.95);
             border-radius: 20px;
             padding: 30px;
+            margin-bottom: 30px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-            animation: fadeInLeft 1s ease-out;
-        }
-
-        .sidebar {
-            animation: fadeInRight 1s ease-out;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease;
         }
-
+        
         .card:hover {
             transform: translateY(-5px);
         }
-
-        .card h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 8px;
+        
+        .main-story {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #2c3e50;
         }
-
-        .timeline {
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-        }
-
-        .timeline-item {
-            position: relative;
+        
+        .main-story h2 {
+            font-size: 2rem;
             margin-bottom: 20px;
-            padding-left: 25px;
+            color: #2c3e50;
         }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: #667eea;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px white, 0 0 0 5px #667eea;
+        
+        .main-story p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
-
-        .timeline-date {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 0.9rem;
+        
+        .timeline {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
         }
-
-        .timeline-content {
-            margin-top: 5px;
-            color: #555;
-        }
-
-        .keywords {
+        
+        .timeline h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            align-items: center;
         }
-
-        .keyword-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .timeline-date {
+            background: #667eea;
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 20px;
             font-size: 0.9rem;
-            font-weight: 500;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .keywords {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .keywords h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .keyword-tag {
+            background: rgba(255,255,255,0.8);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
-
+        
         .keyword-tag:hover {
+            background: rgba(255,255,255,1);
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-
-        .quote-box {
-            background: linear-gradient(45deg, #ffa726, #fb8c00);
-            color: white;
+        
+        .impact {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        
+        .impact h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .impact-item {
+            background: rgba(255,255,255,0.7);
             padding: 20px;
             border-radius: 15px;
-            margin: 20px 0;
-            position: relative;
-            font-style: italic;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
-
-        .quote-box::before {
-            content: '"';
-            font-size: 3rem;
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            opacity: 0.5;
+        
+        .impact-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
-
-        .impact-meter {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .impact-bar {
-            background: #e9ecef;
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .impact-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #28a745, #ffc107, #dc3545);
-            width: 85%;
-            border-radius: 5px;
-            animation: fillBar 2s ease-out;
-        }
-
+        
         .footer {
             text-align: center;
-            color: white;
-            opacity: 0.8;
+            color: rgba(255,255,255,0.8);
             margin-top: 40px;
             padding: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
-
+        
         .generation-time {
             font-size: 0.9rem;
             margin-top: 10px;
+            color: rgba(255,255,255,0.7);
         }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes fillBar {
-            from { width: 0; }
-            to { width: 85%; }
-        }
-
+        
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
-
+            
             .header h1 {
                 font-size: 2rem;
             }
-
+            
             .header .subtitle {
                 font-size: 1rem;
             }
-
-            .main-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .news-card, .card {
+            
+            .card {
                 padding: 20px;
             }
-
-            .keywords {
-                justify-content: center;
-            }
-
-            .timeline {
-                padding-left: 15px;
-            }
-
+            
             .timeline-item {
-                padding-left: 20px;
+                flex-direction: column;
+                align-items: stretch;
             }
-        }
-
-        .breaking-news {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            animation: flashAlert 3s infinite;
-        }
-
-        @keyframes flashAlert {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .party-status {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .status-item {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            color: white;
-        }
-
-        .status-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ffd700;
-        }
-
-        @media (max-width: 480px) {
-            .party-status {
-                grid-template-columns: 1fr;
+            
+            .timeline-date {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .keyword-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <div class="trending-badge">🔥 실시간 HOT 이슈</div>
-            <h1>국민의힘 대분열</h1>
-            <p class="subtitle">재보선 37일 전, "사실상 궐위 상태" vs "그만 흔들라" 격돌</p>
-            
-            <div class="party-status">
-                <div class="status-item">
-                    <div class="status-number">37일</div>
-                    <div>재보선까지</div>
-                </div>
-                <div class="status-item">
-                    <div class="status-number">위기</div>
-                    <div>당 내부 상황</div>
+        <div class="header">
+            <h1>🇺🇸 트럼프 한정판 여권</h1>
+            <p class="subtitle">미국 국무부가 트럼프 대통령 얼굴을 새긴 특별 여권 발급</p>
+        </div>
+        
+        <div class="card main-story">
+            <h2>📰 핵심 이슈</h2>
+            <p>미국 국무부가 도널드 트럼프 대통령의 얼굴이 새겨진 한정판 여권을 발급한다고 발표했습니다. 이는 미국 여권 역사상 현직 대통령의 초상이 들어간 첫 번째 사례로 큰 화제를 모으고 있습니다.</p>
+            <p>이번 특별 여권은 트럼프 행정부의 새로운 정책 브랜딩의 일환으로 해석되며, 전례 없는 개인화된 외교 문서라는 점에서 국제적인 관심을 받고 있습니다.</p>
+            <p>한정 수량으로 제작되는 이 여권은 특별한 신청 절차를 통해서만 발급받을 수 있으며, 기존 여권과 동일한 법적 효력을 갖습니다.</p>
+        </div>
+        
+        <div class="card timeline">
+            <h3>⏰ 주요 타임라인</h3>
+            <div class="timeline-item">
+                <div class="timeline-date">2025년 1월</div>
+                <div class="timeline-content">
+                    <strong>트럼프 2기 행정부 출범</strong><br>
+                    새로운 정책 방향과 브랜딩 전략 수립
                 </div>
             </div>
-        </header>
-
-        <main class="main-content">
-            <section class="news-card">
-                <div class="breaking-news">
-                    <strong>🚨 속보:</strong> 국민의힘 하정우·전은수 사의 표명, 김용 공천 배제 확정
+            <div class="timeline-item">
+                <div class="timeline-date">1월 중순</div>
+                <div class="timeline-content">
+                    <strong>국무부 내부 검토</strong><br>
+                    특별 여권 발급 가능성에 대한 법적, 행정적 검토 시작
                 </div>
-
-                <h2 style="color: #667eea; margin-bottom: 20px;">당 분열의 핵심 쟁점</h2>
-                
-                <p style="font-size: 1.1rem; margin-bottom: 20px; line-height: 1.8;">
-                    재보선을 37일 앞둔 시점에서 국민의힘이 심각한 내홍에 빠졌다. 
-                    당 내부에서는 "사실상 궐위 상태"라는 비판과 "그만 흔들라"는 반박이 격돌하고 있으며, 
-                    주요 인사들의 사의 표명이 잇따르고 있다.
-                </p>
-
-                <div class="quote-box">
-                    젊은 XX가 무슨 시장이냐며 음료수를... 사실상 테러
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">오늘</div>
+                <div class="timeline-content">
+                    <strong>공식 발표</strong><br>
+                    미국 국무부, 트럼프 한정판 여권 발급 계획 공식 발표
                 </div>
-
-                <h3 style="color: #667eea; margin: 25px 0 15px 0;">현재 상황 분석</h3>
-                <ul style="margin-left: 20px; line-height: 2;">
-                    <li><strong>김용 후보:</strong> 재보선 공천에서 배제 확정</li>
-                    <li><strong>하정우:</strong> '부산 북갑' 등판 후 사의 표명</li>
-                    <li><strong>전은수:</strong> 동반 사의 표명으로 당내 충격 가중</li>
-                    <li><strong>조응천:</strong> 개혁신당에서 출사표, "추다르크" 전략</li>
-                </ul>
-
-                <div class="impact-meter">
-                    <h4 style="margin-bottom: 10px;">정치적 파장도</h4>
-                    <div class="impact-bar">
-                        <div class="impact-fill"></div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #666;">85% - 매우 높음 (재보선 결과에 직접적 영향 예상)</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">향후 예정</div>
+                <div class="timeline-content">
+                    <strong>신청 접수 시작</strong><br>
+                    특별 신청 절차를 통한 한정판 여권 발급 개시
                 </div>
-            </section>
-
-            <aside class="sidebar">
-                <div class="card">
-                    <h3>📅 주요 일정</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">오늘</div>
-                            <div class="timeline-content">하정우·전은수 사의 표명</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">지난주</div>
-                            <div class="timeline-content">김용 공천 배제 결정</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">37일 후</div>
-                            <div class="timeline-content">재보선 투표일</div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        
+        <div class="card keywords">
+            <h3>🔥 관련 키워드</h3>
+            <div class="keyword-grid">
+                <div class="keyword-tag">
+                    <strong>트럼프 여권</strong>
                 </div>
-
-                <div class="card">
-                    <h3>🔍 연관 키워드</h3>
-                    <div class="keywords">
-                        <span class="keyword-tag">#국민의힘</span>
-                        <span class="keyword-tag">#재보선</span>
-                        <span class="keyword-tag">#당내분열</span>
-                        <span class="keyword-tag">#김용</span>
-                        <span class="keyword-tag">#하정우</span>
-                        <span class="keyword-tag">#전은수</span>
-                        <span class="keyword-tag">#부산북갑</span>
-                        <span class="keyword-tag">#사의표명</span>
-                        <span class="keyword-tag">#궐위상태</span>
-                    </div>
+                <div class="keyword-tag">
+                    <strong>미국 국무부</strong>
                 </div>
-
-                <div class="card">
-                    <h3>📊 여론 동향</h3>
-                    <div style="margin: 15px 0;">
-                        <div style="display: flex; justify-content: space-between; margin: 10px 0;">
-                            <span>당내 결속 우려</span>
-                            <span style="color: #e74c3c; font-weight: bold;">78%</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin: 10px 0;">
-                            <span>재보선 영향</span>
-                            <span style="color: #f39c12; font-weight: bold;">65%</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin: 10px 0;">
-                            <span>조기 수습 필요</span>
-                            <span style="color: #27ae60; font-weight: bold;">89%</span>
-                        </div>
-                    </div>
+                <div class="keyword-tag">
+                    <strong>한정판 발급</strong>
                 </div>
-
-                <div class="card">
-                    <h3>🎯 주목 포인트</h3>
-                    <ul style="line-height: 1.8;">
-                        <li>재보선까지 37일, 시간 부족</li>
-                        <li>연쇄 사의로 당 조직 공백</li>
-                        <li>상대당의 "추다르크" 전략</li>
-                        <li>부산 지역 표심 변화</li>
-                    </ul>
+                <div class="keyword-tag">
+                    <strong>외교 문서</strong>
                 </div>
-            </aside>
-        </main>
-
-        <footer class="footer">
+                <div class="keyword-tag">
+                    <strong>정치 브랜딩</strong>
+                </div>
+                <div class="keyword-tag">
+                    <strong>여권 역사</strong>
+                </div>
+                <div class="keyword-tag">
+                    <strong>국제 관심</strong>
+                </div>
+                <div class="keyword-tag">
+                    <strong>특별 신청</strong>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card impact">
+            <h3>💡 파급 효과</h3>
+            <div class="impact-item">
+                <h4>🏛️ 정치적 영향</h4>
+                <p>대통령 개인 브랜딩이 공식 외교 문서에까지 확장되는 새로운 선례를 만들었습니다. 이는 향후 다른 국가들의 유사한 시도에도 영향을 줄 것으로 예상됩니다.</p>
+            </div>
+            <div class="impact-item">
+                <h4>🌍 국제적 반응</h4>
+                <p>각국 외교부와 국제 사회는 이번 결정에 대해 다양한 반응을 보이고 있으며, 외교 관례에 대한 새로운 논의가 시작될 것으로 보입니다.</p>
+            </div>
+            <div class="impact-item">
+                <h4>📊 사회적 관심</h4>
+                <p>소셜미디어와 언론을 통해 큰 화제가 되고 있으며, 한정판이라는 특성으로 인해 수집가들의 관심도 높아지고 있습니다.</p>
+            </div>
+            <div class="impact-item">
+                <h4>⚖️ 법적 검토</h4>
+                <p>여권의 법적 효력과 국제적 인정에 대한 논의가 활발해지고 있으며, 관련 법규에 대한 재검토가 이루어질 전망입니다.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
             <div class="generation-time">
-                생성시각: <span id="currentTime"></span> (KST)
+                생성 시각: <span id="current-time"></span> (KST)
             </div>
-        </footer>
+        </div>
     </div>
-
+    
     <script>
-        // 현재 시간을 한국 시간으로 표시
+        // 현재 한국 시간 표시
         function updateTime() {
             const now = new Date();
             const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const timeString = kstTime.toLocaleString('ko-KR', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'Asia/Seoul'
-            });
-            document.getElementById('currentTime').textContent = timeString;
+            const timeString = kstTime.toISOString().replace('T', ' ').substr(0, 19);
+            document.getElementById('current-time').textContent = timeString;
         }
-
+        
+        // 페이지 로드 시 시간 업데이트
         updateTime();
-        setInterval(updateTime, 1000);
-
-        // 키워드 태그 클릭 효과
+        
+        // 키워드 태그 클릭 이벤트
         document.querySelectorAll('.keyword-tag').forEach(tag => {
             tag.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
+                this.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                this.style.color = 'white';
                 setTimeout(() => {
-                    this.style.transform = 'scale(1.05)';
-                }, 100);
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
+                    this.style.background = 'rgba(255,255,255,0.8)';
+                    this.style.color = '#333';
+                }, 1000);
             });
         });
-
+        
+        // 카드 호버 효과
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
         // 스크롤 애니메이션
         function animateOnScroll() {
             const cards = document.querySelectorAll('.card');
             cards.forEach(card => {
                 const cardTop = card.getBoundingClientRect().top;
-                const cardVisible = 150;
+                const windowHeight = window.innerHeight;
                 
-                if (cardTop < window.innerHeight - cardVisible) {
+                if (cardTop < windowHeight - 100) {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }
             });
         }
-
+        
+        // 초기 카드 숨기기
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
     </script>
