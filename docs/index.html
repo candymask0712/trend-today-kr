@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>미니 총선 열풍 - 14곳 재보궐선거 특집</title>
+    <title>하정우 악수 논란 - 실시간 이슈 분석</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
@@ -28,35 +27,38 @@
         .header {
             text-align: center;
             margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            color: white;
         }
 
         .header h1 {
             font-size: 2.5rem;
-            color: #2c3e50;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #3498db, #8e44ad);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header .subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
-        .election-badge {
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .breaking-badge {
             display: inline-block;
-            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
             animation: pulse 2s infinite;
         }
 
@@ -66,151 +68,127 @@
             100% { transform: scale(1); }
         }
 
-        .main-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transform: translateY(0);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
-        }
-
-        .card h2 {
-            font-size: 1.5rem;
+        .main-content h2 {
             color: #2c3e50;
+            font-size: 2rem;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
         }
 
-        .icon {
-            font-size: 1.8rem;
+        .summary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 30px;
-            margin-bottom: 20px;
-            border-left: 3px solid #3498db;
+            margin-bottom: 30px;
+            padding-left: 80px;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -8px;
+            left: 22px;
             top: 5px;
-            width: 12px;
-            height: 12px;
+            width: 17px;
+            height: 17px;
             border-radius: 50%;
-            background: #3498db;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .timeline-date {
+            color: #667eea;
             font-weight: bold;
-            color: #8e44ad;
             font-size: 0.9rem;
+            margin-bottom: 5px;
         }
 
         .timeline-content {
-            margin-top: 5px;
-            color: #555;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
         }
 
-        .keyword-tag {
-            display: inline-block;
-            background: linear-gradient(45deg, #74b9ff, #0984e3);
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .keyword {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
             color: white;
             padding: 8px 15px;
-            border-radius: 20px;
-            margin: 5px 10px 5px 0;
+            border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
         }
 
-        .keyword-tag:hover {
-            transform: scale(1.1);
+        .keyword:hover {
+            transform: translateY(-2px);
         }
 
-        .constituency-grid {
+        .reactions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .constituency-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
+        .reaction-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            font-weight: bold;
-            transition: transform 0.2s ease;
         }
 
-        .constituency-item:hover {
-            transform: scale(1.05);
-        }
-
-        .party-battle {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 20px 0;
-        }
-
-        .party {
-            text-align: center;
-            flex: 1;
-        }
-
-        .party-name {
-            font-size: 1.2rem;
-            font-weight: bold;
+        .reaction-card h4 {
+            color: #2c3e50;
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        .party.blue .party-name {
-            color: #0066cc;
-        }
-
-        .party.red .party-name {
-            color: #cc0000;
-        }
-
-        .vs {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #e74c3c;
-            margin: 0 20px;
+        .reaction-card p {
+            color: #34495e;
+            line-height: 1.5;
         }
 
         .footer {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 40px;
-            color: #7f8c8d;
-        }
-
-        .generation-time {
+            color: white;
             font-size: 0.9rem;
-            margin-top: 10px;
-            color: #95a5a6;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
         @media (max-width: 768px) {
@@ -222,180 +200,154 @@
                 font-size: 2rem;
             }
 
-            .main-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
             .card {
                 padding: 20px;
             }
 
-            .party-battle {
-                flex-direction: column;
-                gap: 10px;
+            .main-content h2 {
+                font-size: 1.5rem;
             }
 
-            .vs {
-                transform: rotate(90deg);
-                margin: 10px 0;
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item::before {
+                left: 12px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>🗳️ 미니 총선의 열기</h1>
-            <p class="subtitle">2024년 재보궐선거 완전 분석</p>
-            <div class="election-badge">
-                14곳 동시 선거 진행 중
-            </div>
-        </header>
+        <div class="header">
+            <h1>🔥 실시간 HOT 이슈</h1>
+            <p>AI가 분석한 한국 트렌드 리포트</p>
+        </div>
 
-        <div class="main-content">
-            <div class="card">
-                <h2><span class="icon">📊</span>선거 개요</h2>
-                <div class="party-battle">
-                    <div class="party blue">
-                        <div class="party-name">더불어민주당</div>
-                        <div>수성 전략</div>
+        <div class="card">
+            <div class="breaking-badge">🚨 BREAKING NEWS</div>
+            <div class="main-content">
+                <h2>하정우 악수 후 손털기 논란</h2>
+                
+                <div class="summary">
+                    배우 하정우가 유권자와 악수 후 손을 터는 모습이 포착되어 "유권자를 벌레 취급한다"는 논란이 일고 있습니다. 이에 대해 본인은 "저려서 무의식적으로 한 행동"이라고 해명했지만, 정치적 파장이 계속되고 있습니다.
+                </div>
+
+                <h3 style="color: #2c3e50; margin-bottom: 20px;">📅 사건 타임라인</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024년 최근</div>
+                        <div class="timeline-content">
+                            <strong>논란 발생</strong><br>
+                            하정우가 유권자들과 악수 후 손을 터는 모습이 영상으로 확산
+                        </div>
                     </div>
-                    <div class="vs">VS</div>
-                    <div class="party red">
-                        <div class="party-name">국민의힘</div>
-                        <div>탈환 작전</div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">논란 확산</div>
+                        <div class="timeline-content">
+                            <strong>여론 악화</strong><br>
+                            "손 털며 유권자 벌레 취급"이라는 비판 여론 형성
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">해명 시도</div>
+                        <div class="timeline-content">
+                            <strong>본인 해명</strong><br>
+                            "저려서 무의식적으로 한 행동"이라고 해명했으나 논란 지속
+                        </div>
                     </div>
                 </div>
-                <p>전국 14곳에서 동시에 치러지는 재보궐선거가 '미니 총선'이라 불리며 정치권의 뜨거운 관심을 받고 있습니다. 양당은 각각 기존 의석 수성과 새로운 의석 확보를 위해 총력전을 펼치고 있습니다.</p>
-            </div>
 
-            <div class="card">
-                <h2><span class="icon">🎯</span>주요 쟁점</h2>
-                <div class="timeline-item">
-                    <div class="timeline-date">공천 갈등</div>
-                    <div class="timeline-content">양구 공천 취소, 순천 공천 논란 등 각 당 내부에서 공천을 둘러싼 잡음이 지속되고 있습니다.</div>
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🔍 관련 키워드</h3>
+                <div class="keywords">
+                    <span class="keyword">#하정우</span>
+                    <span class="keyword">#악수논란</span>
+                    <span class="keyword">#손털기</span>
+                    <span class="keyword">#유권자</span>
+                    <span class="keyword">#정치적논란</span>
+                    <span class="keyword">#연예인정치참여</span>
+                    <span class="keyword">#예의논란</span>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">비위 의혹</div>
-                    <div class="timeline-content">일부 지역구에서 후보자들의 과거 비위 의혹이 제기되며 선거에 영향을 미치고 있습니다.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">지역 공약</div>
-                    <div class="timeline-content">각 지역별 현안과 개발 공약을 중심으로 후보들의 정책 경쟁이 치열합니다.</div>
-                </div>
-            </div>
 
-            <div class="card">
-                <h2><span class="icon">🏛️</span>선거구 현황</h2>
-                <div class="constituency-grid">
-                    <div class="constituency-item">부산 북구갑</div>
-                    <div class="constituency-item">순천시</div>
-                    <div class="constituency-item">양구군</div>
-                    <div class="constituency-item">서울 용산구</div>
-                    <div class="constituency-item">경기 하남시</div>
-                    <div class="constituency-item">기타 9곳</div>
+                <h3 style="color: #2c3e50; margin: 30px 0 20px 0;">💭 여론 반응</h3>
+                <div class="reactions">
+                    <div class="reaction-card">
+                        <h4>😠 비판적 의견</h4>
+                        <p>"유권자를 무시하는 행동이다", "기본적인 예의가 부족하다"는 의견이 다수</p>
+                    </div>
+                    <div class="reaction-card">
+                        <h4>🤔 중립적 의견</h4>
+                        <p>"무의식적 행동일 수 있다", "과도한 해석이 아닌가"하는 의견도 존재</p>
+                    </div>
+                    <div class="reaction-card">
+                        <h4>📺 미디어 주목</h4>
+                        <p>주요 언론사들이 연속 보도하며 정치적 쟁점으로 부각</p>
+                    </div>
                 </div>
-                <p style="margin-top: 20px; color: #666; font-size: 0.95rem;">
-                    총 14곳의 재보궐선거가 동시에 진행되며, 각 지역별로 치열한 접전이 예상됩니다.
-                </p>
-            </div>
 
-            <div class="card">
-                <h2><span class="icon">🔥</span>화제의 키워드</h2>
-                <div style="margin-top: 15px;">
-                    <span class="keyword-tag">#미니총선</span>
-                    <span class="keyword-tag">#재보궐선거</span>
-                    <span class="keyword-tag">#수성vs탈환</span>
-                    <span class="keyword-tag">#공천논란</span>
-                    <span class="keyword-tag">#지역공약</span>
-                    <span class="keyword-tag">#정치지형변화</span>
-                    <span class="keyword-tag">#유권자선택</span>
-                    <span class="keyword-tag">#14곳동시선거</span>
+                <div style="background: #e8f4f8; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                    <h4 style="color: #2980b9; margin-bottom: 10px;">📊 이슈 분석</h4>
+                    <p style="line-height: 1.6; color: #34495e;">
+                        이 사건은 연예인의 정치 참여 과정에서 발생한 에티켓 논란으로, 
+                        단순한 실수가 정치적 해석을 받으며 확산된 사례입니다. 
+                        SNS 시대의 영상 확산력과 정치적 민감성이 결합된 현상으로 분석됩니다.
+                    </p>
                 </div>
-            </div>
-
-            <div class="card">
-                <h2><span class="icon">⚡</span>실시간 이슈</h2>
-                <div class="timeline-item">
-                    <div class="timeline-date">하정우 부산 응원</div>
-                    <div class="timeline-content">"어무이·행님 품으로"라며 부산을 향한 하정우의 메시지가 화제를 모으고 있습니다.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">SNS 설전</div>
-                    <div class="timeline-content">정치인들 간의 SNS를 통한 설전이 선거 열기를 더욱 뜨겁게 달구고 있습니다.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">막판 변수</div>
-                    <div class="timeline-content">선거 막바지까지 공천 변경과 후보 교체 등 예상치 못한 변수들이 계속 발생하고 있습니다.</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2><span class="icon">📈</span>선거 전망</h2>
-                <p style="margin-bottom: 15px;">이번 재보궐선거는 다음과 같은 의미를 가집니다:</p>
-                <ul style="list-style: none; padding-left: 20px;">
-                    <li style="margin-bottom: 10px;">🔹 2024년 정치 지형 변화의 전초전</li>
-                    <li style="margin-bottom: 10px;">🔹 양당의 조직력과 지지율 시험대</li>
-                    <li style="margin-bottom: 10px;">🔹 지역민심의 현재 상황 점검</li>
-                    <li style="margin-bottom: 10px;">🔹 향후 정치 전략 수립의 기준점</li>
-                </ul>
             </div>
         </div>
 
-        <footer class="footer">
+        <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <div class="generation-time" id="generationTime"></div>
-        </footer>
+            <p>생성 시각: <span id="current-time"></span> (KST)</p>
+        </div>
     </div>
 
     <script>
-        // 한국 시간으로 생성 시각 표시
-        function updateGenerationTime() {
+        // 현재 시각을 한국 시간으로 표시
+        function updateTime() {
             const now = new Date();
-            const koreaTime = new Date(now.getTime() + (9 * 60 * 60 * 1000)); // UTC+9
-            const timeString = koreaTime.toLocaleString('ko-KR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'Asia/Seoul'
-            });
-            document.getElementById('generationTime').textContent = `생성 시각: ${timeString} (KST)`;
+            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const timeString = kstTime.toISOString().replace('T', ' ').slice(0, 19);
+            document.getElementById('current-time').textContent = timeString;
         }
 
-        // 페이지 로드 시 시간 업데이트
-        updateGenerationTime();
+        updateTime();
 
-        // 카드 호버 효과 강화
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(255, 255, 255, 1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'rgba(255, 255, 255, 0.95)';
-            });
-        });
-
-        // 키워드 태그 클릭 이벤트
-        document.querySelectorAll('.keyword-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                const keyword = this.textContent.replace('#', '');
-                alert(`"${keyword}" 관련 정보를 찾고 있습니다...`);
-            });
-        });
-
-        // 선거구 클릭 이벤트
-        document.querySelectorAll('.constituency-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const region = this.textContent;
-                this.style.background = 'linear-gradient(135deg, #00b894, #00cec9)';
+        // 키워드 클릭 효과
+        document.querySelectorAll('.keyword').forEach(keyword => {
+            keyword.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1)';
                 setTimeout(() => {
-                    this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
-                }, 1000);
+                    this.style.transform = 'scale(1)';
+                }, 200);
             });
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .reaction-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
