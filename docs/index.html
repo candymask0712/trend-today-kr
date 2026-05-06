@@ -3,152 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>코스피 7,000 돌파 임박 - 한국 증시 현황</title>
+    <title>북한 개헌 이슈 - '통일' 삭제와 '두 국가' 명문화</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
-            line-height: 1.6;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
+        
         .header {
             text-align: center;
             margin-bottom: 40px;
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
-
+        
         .header h1 {
             font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .header p {
+        
+        .header .subtitle {
             font-size: 1.2em;
-            opacity: 0.9;
+            color: #666;
+            margin-bottom: 20px;
         }
-
-        .stock-ticker {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        
+        .breaking-tag {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff4757, #ff3742);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
             animation: pulse 2s infinite;
         }
-
+        
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-
-        .ticker-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .ticker-main {
-            font-size: 2em;
-            font-weight: bold;
-        }
-
-        .ticker-sub {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .progress-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .progress-title {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        .progress-bar {
-            background: #ecf0f1;
-            border-radius: 25px;
-            height: 30px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, #00b894, #00cec9);
-            height: 100%;
-            width: 91%;
-            border-radius: 25px;
-            animation: progressAnimation 3s ease-out;
-            position: relative;
-        }
-
-        @keyframes progressAnimation {
-            from { width: 0%; }
-            to { width: 91%; }
-        }
-
-        .progress-text {
-            text-align: center;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .cards-grid {
+        
+        .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
-
+        
+        @media (min-width: 768px) {
+            .main-content {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        
         .card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-
+        
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
         }
-
-        .card h3 {
+        
+        .card h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.3em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
         }
-
+        
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+        }
+        
         .timeline {
             position: relative;
             padding-left: 30px;
         }
-
+        
         .timeline::before {
             content: '';
             position: absolute;
@@ -156,292 +121,280 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, #667eea, #764ba2);
+            background: linear-gradient(to bottom, #3498db, #2980b9);
         }
-
+        
         .timeline-item {
             position: relative;
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 30px;
             background: #f8f9fa;
+            padding: 20px;
             border-radius: 10px;
+            margin-left: 20px;
         }
-
+        
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -22px;
-            top: 20px;
-            width: 12px;
-            height: 12px;
+            left: -35px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            background: #667eea;
+            background: #3498db;
+            border: 3px solid #fff;
         }
-
+        
         .timeline-date {
             font-weight: bold;
-            color: #667eea;
-            margin-bottom: 5px;
+            color: #3498db;
+            font-size: 0.9em;
         }
-
+        
+        .timeline-content {
+            margin-top: 10px;
+            color: #555;
+        }
+        
         .keywords {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 20px;
         }
-
+        
         .keyword {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9em;
+            font-weight: 500;
             transition: transform 0.2s ease;
         }
-
+        
         .keyword:hover {
             transform: scale(1.05);
         }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+        
+        .impact-meter {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
         }
-
-        .stat-item {
-            text-align: center;
-            padding: 15px;
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
-            color: white;
-            border-radius: 10px;
-        }
-
-        .stat-value {
-            font-size: 1.5em;
+        
+        .impact-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
             font-weight: bold;
-            margin-bottom: 5px;
         }
-
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.9;
+        
+        .impact-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
         }
-
+        
+        .impact-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500);
+            border-radius: 5px;
+            animation: fillBar 2s ease-in-out;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0%; }
+            to { width: 90%; }
+        }
+        
+        .analysis-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .analysis-points li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            position: relative;
+        }
+        
+        .analysis-points li::before {
+            content: '▶';
+            color: #e74c3c;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
         .footer {
             text-align: center;
-            color: white;
-            padding: 30px 20px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 15px;
-            margin-top: 40px;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            color: #666;
+            font-size: 0.9em;
         }
-
-        .footer p {
-            margin-bottom: 10px;
-            opacity: 0.8;
-        }
-
+        
         .generation-time {
             font-weight: bold;
-            color: #fff;
+            color: #3498db;
+            margin-top: 10px;
         }
-
+        
         @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
             .header h1 {
                 font-size: 2em;
             }
             
-            .ticker-content {
-                text-align: center;
+            .card {
+                padding: 20px;
             }
             
-            .ticker-main {
-                font-size: 1.5em;
-                margin-bottom: 10px;
+            .timeline {
+                padding-left: 20px;
             }
             
-            .container {
-                padding: 15px;
+            .timeline-item {
+                margin-left: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🚀 코스피 7,000 돌파 임박</h1>
-            <p>대한민국 증시가 역사적인 순간을 향해 달리고 있습니다</p>
+        <header class="header">
+            <div class="breaking-tag">🔥 HOT ISSUE</div>
+            <h1>북한 개헌 이슈</h1>
+            <p class="subtitle">'통일' 삭제하고 '두 국가' 명문화</p>
+        </header>
+        
+        <div class="main-content">
+            <main>
+                <div class="card">
+                    <h2>📋 핵심 요약</h2>
+                    <div class="summary">
+                        북한이 최근 개정한 헌법에서 기존의 '통일' 관련 조항을 삭제하고, 남북을 별개의 '두 국가'로 명문화했다는 분석이 나왔습니다. 이는 북한이 기존의 통일 정책에서 완전히 선회하여 분단 고착화를 헌법적으로 확정짓는 역사적 변화로 평가됩니다.
+                    </div>
+                    
+                    <div class="impact-meter">
+                        <div class="impact-label">
+                            <span>사회적 파급력</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="impact-bar">
+                            <div class="impact-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <h3>🔍 주요 분석 포인트</h3>
+                    <ul class="analysis-points">
+                        <li>북한 헌법에서 '통일' 관련 조항 완전 삭제</li>
+                        <li>남북을 '두 개의 별개 국가'로 명문화</li>
+                        <li>김정은 정권의 대남 정책 근본적 변화 시사</li>
+                        <li>분단 체제의 항구화 의도로 해석</li>
+                        <li>향후 남북관계에 미칠 장기적 영향 우려</li>
+                    </ul>
+                </div>
+            </main>
+            
+            <aside>
+                <div class="card">
+                    <h2>⏰ 주요 타임라인</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024년 초</div>
+                            <div class="timeline-content">김정은, 남북관계를 '두 교전국 관계'로 규정</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024년 중순</div>
+                            <div class="timeline-content">북한 최고인민회의에서 헌법 개정 논의 시작</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">최근</div>
+                            <div class="timeline-content">개정 헌법에서 '통일' 조항 삭제, '두 국가' 명문화 확인</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>🏷️ 관련 키워드</h2>
+                    <div class="keywords">
+                        <span class="keyword">#북한헌법</span>
+                        <span class="keyword">#통일삭제</span>
+                        <span class="keyword">#두국가</span>
+                        <span class="keyword">#남북관계</span>
+                        <span class="keyword">#김정은</span>
+                        <span class="keyword">#분단고착화</span>
+                        <span class="keyword">#대남정책</span>
+                        <span class="keyword">#교전국관계</span>
+                    </div>
+                </div>
+            </aside>
         </div>
-
-        <div class="stock-ticker">
-            <div class="ticker-content">
-                <div>
-                    <div class="ticker-main">KOSPI 6,937</div>
-                    <div class="ticker-sub">7,000까지 63포인트 남음</div>
-                </div>
-                <div>
-                    <div class="ticker-sub">예상 범위</div>
-                    <div class="ticker-main">6,700 ~ 7,700</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="progress-section">
-            <div class="progress-title">🎯 7,000 돌파까지의 여정</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-            <div class="progress-text">91% 완료 (6,937 / 7,000)</div>
-        </div>
-
-        <div class="cards-grid">
-            <div class="card">
-                <h3>📈 주요 동력</h3>
-                <div class="keywords">
-                    <span class="keyword">AI 모멘텀</span>
-                    <span class="keyword">기술주 상승</span>
-                    <span class="keyword">외국인 투자</span>
-                    <span class="keyword">경기 회복</span>
-                    <span class="keyword">반도체 호조</span>
-                </div>
-                <div class="stats-grid" style="margin-top: 20px;">
-                    <div class="stat-item">
-                        <div class="stat-value">+2.3%</div>
-                        <div class="stat-label">주간 상승률</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">AI</div>
-                        <div class="stat-label">핵심 테마</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>⏰ 주요 일정</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024년 5월</div>
-                        <div>한국투자증권 예상범위 발표</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">현재</div>
-                        <div>6,937선에서 7,000 돌파 시도</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">예상</div>
-                        <div>AI 관련주 지속 상승 모멘텀</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">목표</div>
-                        <div>역사적 7,000선 돌파 달성</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🔍 시장 분석</h3>
-                <div style="margin-bottom: 15px;">
-                    <strong>긍정 요인:</strong><br>
-                    • AI 기술주의 지속적인 성장<br>
-                    • 반도체 업종 회복세<br>
-                    • 외국인 투자자금 유입<br>
-                    • 경기 회복 기대감
-                </div>
-                <div>
-                    <strong>주의 요인:</strong><br>
-                    • 고점 부담감<br>
-                    • 글로벌 불확실성<br>
-                    • 금리 정책 변화
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📊 핵심 통계</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value">63p</div>
-                        <div class="stat-label">7,000까지</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">6,937</div>
-                        <div class="stat-label">현재 지수</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">7,700</div>
-                        <div class="stat-label">목표 상한</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">91%</div>
-                        <div class="stat-label">달성률</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
+        
+        <footer class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p class="generation-time">생성 시각: 2024년 5월 9일 오후 2:30 (KST)</p>
-        </div>
+            <div class="generation-time" id="generation-time"></div>
+        </footer>
     </div>
-
+    
     <script>
-        // 실시간 카운터 애니메이션
-        function animateCounter() {
-            const remainingPoints = document.querySelector('.ticker-sub');
-            let count = 63;
-            
-            setInterval(() => {
-                if (Math.random() > 0.7) {
-                    count += Math.floor(Math.random() * 3) - 1;
-                    if (count < 0) count = 0;
-                    if (count > 100) count = 100;
-                    remainingPoints.textContent = `7,000까지 ${count}포인트 남음`;
+        // 한국 시간 표시
+        const now = new Date();
+        const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+        const timeString = kstTime.toLocaleString('ko-KR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZone: 'Asia/Seoul'
+        });
+        document.getElementById('generation-time').textContent = `생성 시각: ${timeString} (KST)`;
+        
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
-            }, 5000);
-        }
-
-        // 카드 호버 효과
+            });
+        }, observerOptions);
+        
+        // 카드 요소들에 애니메이션 적용
         document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'linear-gradient(135deg, #fff, #f8f9fa)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = 'white';
-            });
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
         });
-
-        // 키워드 클릭 효과
+        
+        // 키워드 호버 효과
         document.querySelectorAll('.keyword').forEach(keyword => {
-            keyword.addEventListener('click', function() {
-                this.style.background = 'linear-gradient(45deg, #00b894, #00cec9)';
-                setTimeout(() => {
-                    this.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
-                }, 200);
+            keyword.addEventListener('mouseenter', () => {
+                keyword.style.transform = 'scale(1.1)';
+                keyword.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
             });
-        });
-
-        // 페이지 로드 시 애니메이션 시작
-        window.addEventListener('load', () => {
-            animateCounter();
             
-            // 스크롤 애니메이션
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
+            keyword.addEventListener('mouseleave', () => {
+                keyword.style.transform = 'scale(1)';
+                keyword.style.boxShadow = 'none';
             });
         });
     </script>
