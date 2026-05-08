@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>영화 할인권 대규모 배포 - 문화산업 활성화 정책</title>
+    <title>대통령 개헌안 무산 - 실시간 트렌드 분석</title>
     <style>
         * {
             margin: 0;
@@ -13,456 +13,359 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 20px;
+            color: #333;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         .header {
             text-align: center;
-            color: white;
             margin-bottom: 40px;
+            color: white;
         }
 
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .header p {
+        .header .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
         }
 
         .main-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #ff6b6b, #ffa726);
             color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .highlight-box h2 {
+        .main-card h2 {
             font-size: 2rem;
             margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .highlight-box .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
+        .main-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .info-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .info-card {
+        .card {
             background: white;
-            padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-left: 5px solid #667eea;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .info-card h3 {
-            color: #333;
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #667eea;
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
         }
 
-        .info-card p {
-            color: #666;
-            line-height: 1.7;
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
         }
 
         .timeline {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            padding-left: 30px;
         }
 
-        .timeline h3 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 25px;
-            font-size: 1.5rem;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
         }
 
         .timeline-item {
-            display: flex;
-            align-items: center;
             margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .timeline-date {
-            background: #667eea;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-right: 20px;
-            min-width: 120px;
-            text-align: center;
-        }
-
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .keyword-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .impact-section {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-        }
-
-        .impact-section h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .impact-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .impact-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-left: 20px;
             position: relative;
         }
 
-        .impact-list li:before {
-            content: "✓";
+        .timeline-item::before {
+            content: '';
             position: absolute;
-            left: 0;
+            left: -35px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-time {
+            color: #667eea;
             font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .timeline-content {
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        .keyword-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease;
+        }
+
+        .keyword-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .impact-meter {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .impact-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .impact-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a6f);
+            transition: width 1s ease;
         }
 
         .footer {
             text-align: center;
             color: white;
-            margin-top: 50px;
+            margin-top: 40px;
             padding: 20px;
-            background: rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.1);
             border-radius: 10px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
         }
 
-        .footer p {
-            margin: 5px 0;
+        .generated-time {
+            font-size: 0.9rem;
             opacity: 0.8;
+            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            
             .header h1 {
                 font-size: 2rem;
             }
             
-            .header p {
+            .header .subtitle {
                 font-size: 1rem;
             }
             
-            .main-card {
-                padding: 20px;
-            }
-            
-            .highlight-box h2 {
+            .main-card h2 {
                 font-size: 1.5rem;
             }
             
-            .stat-number {
-                font-size: 2rem;
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .timeline-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .timeline-date {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .card {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header fade-in">
-            <h1>🎬 영화 할인권 225만장 대규모 배포</h1>
-            <p>문화산업 활성화를 위한 정부의 파격적인 지원 정책</p>
+        <div class="header">
+            <h1>🏛️ 개헌안 표결 무산</h1>
+            <div class="subtitle">정치권 갈등 심화, 국회 운영 차질</div>
         </div>
 
-        <div class="main-card fade-in">
-            <div class="highlight-box pulse">
-                <h2>6천원 할인권 225만장 배포</h2>
-                <p>1월 13일부터 1인 2매까지 신청 가능</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">225만장</span>
-                        <span class="stat-label">총 배포 수량</span>
+        <div class="main-card">
+            <h2>핵심 이슈</h2>
+            <p>국회에서 개헌안 표결 시도가 중단되며 여야 간 정치적 갈등이 심화되고 있습니다. 우원식 국회의장은 "정략으로 무산된 것이 유감"이라고 밝혔으며, 민주당은 국민의힘의 필리버스터를 통한 저지를 강하게 비판했습니다.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>
+                    <span class="card-icon">📅</span>
+                    주요 타임라인
+                </h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">오전</div>
+                        <div class="timeline-content">개헌안 표결 시도 시작</div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">6,000원</span>
-                        <span class="stat-label">할인 금액</span>
+                    <div class="timeline-item">
+                        <div class="timeline-time">오후</div>
+                        <div class="timeline-content">국민의힘 필리버스터 진행</div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">2매</span>
-                        <span class="stat-label">1인당 최대</span>
+                    <div class="timeline-item">
+                        <div class="timeline-time">저녁</div>
+                        <div class="timeline-content">우원식 의장 표결 중단 선언</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">밤</div>
+                        <div class="timeline-content">본회의 산회 후 여야 반응</div>
                     </div>
                 </div>
             </div>
 
-            <div class="keywords">
-                <span class="keyword-tag">#영화할인권</span>
-                <span class="keyword-tag">#문화지원정책</span>
-                <span class="keyword-tag">#영화산업활성화</span>
-                <span class="keyword-tag">#코로나회복</span>
-                <span class="keyword-tag">#문화소비촉진</span>
-                <span class="keyword-tag">#1월13일시작</span>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>📅 신청 기간</h3>
-                    <p>2024년 1월 13일부터 선착순 마감까지 신청이 가능합니다. 온라인을 통한 신청 방식으로 진행되며, 소진 시까지 계속 배포됩니다.</p>
+            <div class="card">
+                <h3>
+                    <span class="card-icon">🔥</span>
+                    이슈 임팩트
+                </h3>
+                <div class="impact-meter">
+                    <div>정치적 파급력</div>
+                    <div class="impact-bar">
+                        <div class="impact-fill" style="width: 95%"></div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <h3>🎫 사용 방법</h3>
-                    <p>전국 영화관에서 사용 가능하며, 1인당 최대 2매까지 신청할 수 있습니다. 모든 상영작에 적용되며 추가 제한은 없습니다.</p>
+                <div class="impact-meter">
+                    <div>국정 운영 영향도</div>
+                    <div class="impact-bar">
+                        <div class="impact-fill" style="width: 85%"></div>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <h3>💰 경제적 효과</h3>
-                    <p>총 135억원 규모의 지원으로 영화산업 회복과 문화소비 촉진을 목표로 합니다. 코로나19 이후 침체된 영화산업에 활력을 불어넣을 것으로 기대됩니다.</p>
-                </div>
-                <div class="info-card">
-                    <h3>🎬 산업 지원</h3>
-                    <p>단순한 할인을 넘어 국내 영화산업 전반의 생태계 회복을 지원하는 정책입니다. 제작사, 배급사, 극장 모두에게 도움이 될 것으로 예상됩니다.</p>
+                <div class="impact-meter">
+                    <div>국민 관심도</div>
+                    <div class="impact-bar">
+                        <div class="impact-fill" style="width: 78%"></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="timeline">
-                <h3>📋 주요 일정</h3>
-                <div class="timeline-item">
-                    <div class="timeline-date">1월 13일</div>
-                    <div>영화 할인권 온라인 신청 시작</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">신청 후</div>
-                    <div>모바일 쿠폰 또는 실물 쿠폰 발급</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">사용기간</div>
-                    <div>발급 후 일정 기간 내 전국 영화관에서 사용</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">소진시</div>
-                    <div>선착순 마감 (총 225만장 한정)</div>
+            <div class="card">
+                <h3>
+                    <span class="card-icon">🏷️</span>
+                    관련 키워드
+                </h3>
+                <div>
+                    <span class="keyword-tag">#개헌안</span>
+                    <span class="keyword-tag">#국회표결</span>
+                    <span class="keyword-tag">#우원식의장</span>
+                    <span class="keyword-tag">#필리버스터</span>
+                    <span class="keyword-tag">#여야갈등</span>
+                    <span class="keyword-tag">#정치적무산</span>
+                    <span class="keyword-tag">#국민의힘</span>
+                    <span class="keyword-tag">#민주당</span>
+                    <span class="keyword-tag">#국회법개정</span>
                 </div>
             </div>
 
-            <div class="impact-section">
-                <h3>🌟 예상 효과</h3>
-                <ul class="impact-list">
-                    <li>영화산업 매출 증대 및 관객 수 증가</li>
-                    <li>코로나19로 위축된 문화 소비 활동 회복</li>
-                    <li>영화관, 제작사, 배급사 등 전 산업 생태계 활성화</li>
-                    <li>국민의 문화 향유 기회 확대</li>
-                    <li>지역 경제 활성화 및 일자리 창출 효과</li>
-                    <li>한국 영화 및 다양성 영화 관람 기회 증대</li>
-                </ul>
+            <div class="card">
+                <h3>
+                    <span class="card-icon">💭</span>
+                    주요 반응
+                </h3>
+                <div style="line-height: 1.6;">
+                    <p><strong>우원식 의장:</strong> "정략으로 무산된 것이 유감"</p>
+                    <br>
+                    <p><strong>민주당:</strong> "국힘, 필버로 민생 볼모 삼아 개헌 저지"</p>
+                    <br>
+                    <p><strong>정치권 전반:</strong> 국회법 개정 논의 재점화</p>
+                    <br>
+                    <p><strong>시민사회:</strong> 정치적 대립보다 민생 우선 촉구</p>
+                </div>
             </div>
         </div>
 
         <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p id="generation-time"></p>
+            <div class="generated-time" id="generated-time"></div>
         </div>
     </div>
 
     <script>
         // 한국 시간으로 생성 시각 표시
-        const now = new Date();
-        const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-        const timeString = kstTime.toLocaleString('ko-KR', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            timeZone: 'Asia/Seoul'
-        });
-        
-        document.getElementById('generation-time').textContent = `생성 시각: ${timeString} (KST)`;
+        function displayKoreanTime() {
+            const now = new Date();
+            const koreaTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: 'Asia/Seoul'
+            };
+            
+            document.getElementById('generated-time').textContent = 
+                `생성 시각: ${koreaTime.toLocaleString('ko-KR', options)} (KST)`;
+        }
 
-        // 스크롤 애니메이션
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // 애니메이션 대상 요소들
-        const animateElements = document.querySelectorAll('.info-card, .timeline, .impact-section');
-        animateElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-
-        // 통계 카운터 애니메이션
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const text = stat.textContent;
-                if (text.includes('225만장')) {
-                    let count = 0;
-                    const target = 225;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        count += increment;
-                        if (count >= target) {
-                            stat.textContent = '225만장';
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(count) + '만장';
-                        }
-                    }, 30);
-                } else if (text.includes('6,000원')) {
-                    let count = 0;
-                    const target = 6000;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        count += increment;
-                        if (count >= target) {
-                            stat.textContent = '6,000원';
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(count).toLocaleString() + '원';
-                        }
-                    }, 30);
-                }
+        // 임팩트 바 애니메이션
+        function animateImpactBars() {
+            const bars = document.querySelectorAll('.impact-fill');
+            bars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.width = bar.style.width;
+                }, index * 200);
             });
         }
 
-        // 페이지 로드 후 애니메이션 시작
-        window.addEventListener('load', () => {
-            setTimeout(animateStats, 500);
+        // 페이지 로드 시 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            displayKoreanTime();
+            setTimeout(animateImpactBars, 500);
         });
 
-        // 클릭 효과
+        // 키워드 태그 클릭 이벤트
         document.querySelectorAll('.keyword-tag').forEach(tag => {
             tag.addEventListener('click', function() {
                 this.style.transform = 'scale(1.1)';
                 setTimeout(() => {
-                    this.style.transform = 'scale(1)';
+                    this.style.transform = 'scale(1.05)';
                 }, 150);
             });
         });
