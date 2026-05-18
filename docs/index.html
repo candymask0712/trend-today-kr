@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한미 정상 통화 - 트럼프 재집권 후 첫 통화</title>
+    <title>한일정상회담 in 안동 - 트렌드 분석</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,6 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
@@ -29,6 +28,7 @@
             text-align: center;
             color: white;
             margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
         }
 
         .header h1 {
@@ -38,307 +38,430 @@
         }
 
         .header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
         }
 
-        .news-card {
-            background: white;
-            border-radius: 15px;
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
             padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .issue-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-size: 0.9rem;
+        }
+
+        .issue-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .issue-description {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             transform: translateY(0);
             transition: transform 0.3s ease;
         }
 
-        .news-card:hover {
+        .stat-card:hover {
             transform: translateY(-5px);
         }
 
-        .breaking-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
+        .stat-number {
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
+            margin-bottom: 5px;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
         .timeline {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: #f8f9ff;
             border-radius: 15px;
             padding: 30px;
-            margin: 20px 0;
-            color: white;
+            margin-bottom: 30px;
         }
 
         .timeline h3 {
+            color: #333;
             margin-bottom: 20px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            text-align: center;
         }
 
         .timeline-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding: 15px;
-            background: rgba(255,255,255,0.1);
+            background: white;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
         }
 
         .timeline-time {
-            background: white;
-            color: #333;
-            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
             border-radius: 20px;
-            font-weight: bold;
+            font-size: 0.8rem;
             margin-right: 15px;
-            min-width: 80px;
-            text-align: center;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        .timeline-content {
+            flex: 1;
+            color: #333;
         }
 
         .keywords {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            color: white;
-        }
-
-        .keywords h3 {
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .keyword-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        .keyword-item {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-            transition: transform 0.3s ease;
+        .keyword-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .keyword-item:hover {
+        .keyword-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .keyword-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .keyword-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .keyword-tag:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .impact-section {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            color: #333;
+            padding: 25px;
             border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
+            margin-bottom: 30px;
         }
 
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        .impact-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
 
         .impact-item {
-            background: white;
-            padding: 20px;
+            background: rgba(255,255,255,0.7);
+            margin: 10px 0;
+            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #e17055;
         }
 
         .footer {
             text-align: center;
             color: white;
-            margin-top: 40px;
             padding: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            opacity: 0.8;
+            font-size: 0.9rem;
         }
 
-        .footer p {
-            margin-bottom: 5px;
+        .generation-time {
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
             .header h1 {
                 font-size: 2rem;
             }
-
-            .header p {
-                font-size: 1rem;
+            
+            .issue-title {
+                font-size: 1.5rem;
             }
-
-            .news-card, .timeline, .keywords, .impact-section {
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .main-card {
                 padding: 20px;
             }
-
+            
             .timeline-item {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 10px;
             }
-
+            
             .timeline-time {
-                margin-bottom: 10px;
+                align-self: flex-start;
                 margin-right: 0;
-            }
-
-            .keyword-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>🤝 한미 정상 통화</h1>
-            <p>트럼프 재집권 후 이재명 대통령과의 첫 통화 성사</p>
-        </header>
+        <div class="header">
+            <h1>🇰🇷🇯🇵 한일정상회담 in 안동</h1>
+            <p>대통령 고향에서 펼쳐지는 외교무대</p>
+        </div>
 
-        <div class="news-card">
-            <span class="breaking-badge">🔥 긴급속보</span>
-            <h2>한미 정상 통화 "팩트시트 충실 이행 노력" 합의</h2>
-            <p style="font-size: 1.1rem; margin-top: 15px; line-height: 1.8;">
-                이재명 대통령과 도널드 트럼프 미국 대통령이 전화 통화를 갖고 양국 간 '팩트시트' 합의사항의 충실한 이행을 위해 노력하기로 했습니다. 
-                이번 통화에서는 미중 정상회담 결과 공유, 한반도 평화 논의 등 핵심 외교 현안들이 다뤄졌습니다.
+        <div class="main-card">
+            <span class="issue-badge">🔥 HOT ISSUE</span>
+            <h2 class="issue-title">이재명 대통령, 고향 안동에서 다카이치 총리와 정상회담</h2>
+            <p class="issue-description">
+                대통령의 고향인 안동이 한일 외교의 무대로 주목받고 있습니다. 이번 회담은 세 번째 대좌로, 
+                지역 주민들과 언론의 높은 관심 속에서 진행되며, 대통령이 직접 구시장 찜닭골목을 방문하는 등 
+                지역 밀착형 외교를 선보이고 있습니다.
             </p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3번째</div>
+                    <div class="stat-label">한일정상 대좌</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">안동</div>
+                    <div class="stat-label">회담 장소</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">고향</div>
+                    <div class="stat-label">대통령 연고지</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">외교</div>
+                    <div class="stat-label">핵심 키워드</div>
+                </div>
+            </div>
         </div>
 
         <div class="timeline">
             <h3>📅 주요 일정 타임라인</h3>
             <div class="timeline-item">
                 <div class="timeline-time">오늘</div>
-                <div>한미 정상 전화 통화 실시 - 팩트시트 이행 방안 논의</div>
+                <div class="timeline-content">
+                    <strong>한일정상회담 본격 진행</strong><br>
+                    안동에서 이재명 대통령과 다카이치 총리의 정상회담이 개최되며 지역 기대감 고조
+                </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-time">최근</div>
-                <div>트럼프 대통령 재집권 후 동맹국과의 첫 정상 통화 라운드</div>
+                <div class="timeline-time">어제 저녁</div>
+                <div class="timeline-content">
+                    <strong>구시장 찜닭골목 방문</strong><br>
+                    대통령이 고향 안동의 명물인 찜닭골목을 찾아 저녁식사를 하며 지역 상권에 활력 선사
+                </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-time">내일</div>
-                <div>한일 정상회담 예정 - 안동에서 경호 준비 한창</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-time">향후</div>
-                <div>한미일 3국 협력 강화 및 인도태평양 전략 구체화</div>
+                <div class="timeline-time">사전</div>
+                <div class="timeline-content">
+                    <strong>회담 준비 및 기대감 형성</strong><br>
+                    외교무대가 된 안동 지역의 준비 작업과 주민들의 높아진 관심과 기대
+                </div>
             </div>
         </div>
 
         <div class="keywords">
-            <h3>🔑 핵심 키워드</h3>
-            <div class="keyword-grid">
-                <div class="keyword-item">
-                    <h4>팩트시트</h4>
-                    <p>양국 간 역사적 합의사항</p>
+            <div class="keyword-section">
+                <h3>🏛️ 정치/외교 키워드</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">한일정상회담</span>
+                    <span class="keyword-tag">외교무대</span>
+                    <span class="keyword-tag">안동</span>
+                    <span class="keyword-tag">대통령 고향</span>
+                    <span class="keyword-tag">국제관계</span>
                 </div>
-                <div class="keyword-item">
-                    <h4>미중 정상회담</h4>
-                    <p>결과 공유 및 분석</p>
-                </div>
-                <div class="keyword-item">
-                    <h4>한반도 평화</h4>
-                    <p>지속적인 평화 프로세스</p>
-                </div>
-                <div class="keyword-item">
-                    <h4>동맹 강화</h4>
-                    <p>한미 동맹 결속 재확인</p>
-                </div>
-                <div class="keyword-item">
-                    <h4>원팀 원보이스</h4>
-                    <p>국내 정치권 단합 메시지</p>
-                </div>
-                <div class="keyword-item">
-                    <h4>인도태평양</h4>
-                    <p>지역 안보 협력 강화</p>
+            </div>
+            <div class="keyword-section">
+                <h3>🌟 문화/지역 키워드</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">찜닭골목</span>
+                    <span class="keyword-tag">구시장</span>
+                    <span class="keyword-tag">지역 상권</span>
+                    <span class="keyword-tag">고향 방문</span>
+                    <span class="keyword-tag">지역 밀착</span>
                 </div>
             </div>
         </div>
 
         <div class="impact-section">
-            <h3>🌏 파급효과 분석</h3>
-            <div class="impact-grid">
-                <div class="impact-item">
-                    <h4>🏛️ 외교적 의미</h4>
-                    <p>트럼프 재집권 후 한미 관계의 연속성 확보와 양국 간 신뢰 관계 재정립의 신호탄</p>
-                </div>
-                <div class="impact-item">
-                    <h4>📈 경제적 영향</h4>
-                    <p>한미 경제협력 지속과 글로벌 공급망에서의 한국 역할 재확인</p>
-                </div>
-                <div class="impact-item">
-                    <h4>🛡️ 안보적 함의</h4>
-                    <p>한반도 안보와 인도태평양 지역 평화 안정을 위한 협력 기반 마련</p>
-                </div>
-                <div class="impact-item">
-                    <h4>🤝 국내 정치</h4>
-                    <p>여야 정치권의 "원팀" 메시지로 대외 협상력 강화 효과 기대</p>
-                </div>
+            <h3>📈 예상 파급효과</h3>
+            <div class="impact-item">
+                <strong>지역경제 활성화</strong> - 안동 지역 관광객 증가 및 상권 활성화 예상
+            </div>
+            <div class="impact-item">
+                <strong>한일관계 개선</strong> - 양국 간 지속적인 대화 채널 유지 및 협력 강화
+            </div>
+            <div class="impact-item">
+                <strong>지방 외교 모델</strong> - 수도권이 아닌 지방에서의 정상외교 새로운 사례
+            </div>
+            <div class="impact-item">
+                <strong>문화 교류 확대</strong> - 안동의 전통문화와 한일 문화교류 촉진 기대
             </div>
         </div>
 
-        <footer class="footer">
+        <div class="footer">
             <p>이 페이지는 AI가 실시간 트렌드를 분석하여 자동 생성했습니다</p>
-            <p id="timestamp"></p>
-        </footer>
+            <div class="generation-time" id="generationTime"></div>
+        </div>
     </div>
 
     <script>
-        // 한국 시간으로 생성 시각 표시
-        function updateTimestamp() {
+        // 현재 한국 시간 표시
+        function updateGenerationTime() {
             const now = new Date();
-            const koreanTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-            const formatted = koreanTime.toLocaleString('ko-KR', {
+            const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000) - (now.getTimezoneOffset() * 60 * 1000));
+            const timeString = kstTime.toLocaleString('ko-KR', {
                 year: 'numeric',
-                month: 'long',
-                day: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
                 hour: '2-digit',
                 minute: '2-digit',
+                second: '2-digit',
                 timeZone: 'Asia/Seoul'
             });
-            document.getElementById('timestamp').textContent = `생성 시각: ${formatted} (KST)`;
+            document.getElementById('generationTime').textContent = `생성 시각: ${timeString} (KST)`;
         }
 
-        // 페이지 로드 시 타임스탬프 업데이트
-        updateTimestamp();
-
-        // 카드 호버 효과
-        document.querySelectorAll('.news-card, .timeline, .keywords, .impact-section').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
+        // 키워드 태그 클릭 효과
+        document.querySelectorAll('.keyword-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 100);
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
             });
         });
 
-        // 키워드 클릭 효과
-        document.querySelectorAll('.keyword-item').forEach(keyword => {
-            keyword.addEventListener('click', function() {
-                this.style.animation = 'pulse 1s ease-in-out';
-                setTimeout(() => {
-                    this.style.animation = '';
-                }, 1000);
+        // 스크롤 애니메이션
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.timeline-item, .keyword-section, .impact-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.8) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // 초기 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            updateGenerationTime();
+            
+            // 스크롤 애니메이션 초기화
+            const elements = document.querySelectorAll('.timeline-item, .keyword-section, .impact-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease';
+            });
+            
+            setTimeout(animateOnScroll, 100);
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // 카드 호버 효과
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 15px 35px rgba(102, 126, 234, 0.4)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
             });
         });
     </script>
